@@ -23,7 +23,11 @@ def authenticate():
     """
     Authenticates a user.
     """
+    # print('Authorizing user.... ---------->', current_user)
+    # print('Authorizing user.... ---------->', current_user.to_dict())
+    # print('Authorizing user.... ---------->', current_user.is_authenticated)
     if current_user.is_authenticated:
+        print('Is authenticated')
         return current_user.to_dict()
     return {'errors': ['Unauthorized']}
 
@@ -38,10 +42,13 @@ def login():
     # form manually to validate_on_submit can be used
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+        print("LOGIN -----------> form valid")
         # Add the user to the session, we are logged in!
         user = User.query.filter(User.email == form.data['email']).first()
         login_user(user)
+        print("LOGGED IN----------->")
         return user.to_dict()
+    print("LOGIN -----------> form invalid")
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 

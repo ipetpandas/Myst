@@ -19,13 +19,14 @@ class Game(db.Model):
   updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 
   # Relationships
-  cart_items = db.relationship('Cart', back_populates='game')
+  # cart_items = db.relationship('Cart', back_populates='game')
   screenshots = db.relationship('GameScreenshot', back_populates="game")
   categories = db.relationship('Category', secondary='game_categories_table', back_populates='games')
   # categories = db.relationship('Category', back_populates='games')
   reviews = db.relationship('Review', back_populates='game')
   libraries = db.relationship('Library', back_populates='game')
   wishlist = db.relationship('Wishlist', back_populates='game')
+  users = db.relationship("User", secondary="cart_table", back_populates="games")
 
   if environment == "production":
     __table_args__ = {"schema": SCHEMA}
@@ -51,4 +52,14 @@ class Game(db.Model):
       "categories": [category.to_dict() for category in self.categories],
       "reviews": [review.to_dict() for review in self.reviews],
       # "libraries": [library.to_dict() for library in self.libraries]
+    }
+
+  def to_cart_dict(self):
+    return {
+      "id": self.id,
+      "title": self.title,
+      "price": self.price,
+      "main_banner_url": self.main_banner_url,
+      "created_at": self.created_at,
+      "updated_at": self.updated_at
     }

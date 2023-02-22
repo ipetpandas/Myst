@@ -24,7 +24,7 @@ class User(db.Model, UserMixin):
     libraries = db.relationship('Library', back_populates='user')
     reviews = db.relationship('Review', back_populates='author')
     wishlist = db.relationship('Wishlist', back_populates='user')
-    cart_items = db.relationship('Cart', back_populates='user')
+    games = db.relationship('Game', secondary="cart_table", back_populates='users')
 
 
     @property

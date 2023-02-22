@@ -14,8 +14,8 @@ class Cart(db.Model):
   updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 
   # Relationships
-  user = db.relationship('User', back_populates='cart_items')
-  game = db.relationship('Game', back_populates='cart_items')
+  # user = db.relationship('User', back_populates='cart_items')
+  # game = db.relationship('Game', back_populates='cart_items')
 
   def to_dict(self):
     return {
