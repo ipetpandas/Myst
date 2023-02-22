@@ -5,7 +5,7 @@ from app.models import db, User, environment, SCHEMA
 def seed_users():
     demo = User(
         username='Demo',
-        email='demo@aa.io',
+        email='demo-lition@aa.io',
         password='password',
         display_pic="https://steamavatar.io/img/1477351899v6iQb.jpg"
     )
@@ -19,21 +19,21 @@ def seed_users():
 
     Alex = User(
         username='alexle',
-        email='alexle@aa.io',
+        email='alex-le@aa.io',
         password='password',
         display_pic="https://cdn.myanimelist.net/images/characters/11/483437.jpg"
     )
 
     John = User(
         username='john_doe',
-        email='john_doe@aa.io',
+        email='johndoe@aa.io',
         password='password',
         display_pic="https://steamavatar.io/img/1477351906o9rtl.jpg"
     )
 
     Jane = User(
         username='jane_doe',
-        email='jane_doe@aa.io',
+        email='janedoe@aa.io',
         password='password',
         display_pic="https://steamavatar.io/img/14777876487vBgd.jpg"
     )
@@ -66,8 +66,8 @@ def seed_users():
 # it will reset the primary keys for you as well.
 def undo_users():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.users_table RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute("DELETE FROM users")
+        db.session.execute("DELETE FROM users_table")
 
     db.session.commit()

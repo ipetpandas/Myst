@@ -13,7 +13,8 @@ class Category(db.Model):
   updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 
   # Relationships
-  games = db.relationship('Game', secondary='game_categories', back_populates='categories')
+  games = db.relationship('Game', secondary='game_categories_table', back_populates='categories')
+  # games = db.relationship('Game', back_populates='categories')
 
   def to_dict(self):
     return {

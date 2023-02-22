@@ -13,15 +13,15 @@ class GameCategory(db.Model):
   created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
   updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 
-  # Relationships
-  game = db.relationship('Game', back_populates='game_categories')
-  category = db.relationship('Category', back_populates='game_categories')
+  # # Relationships
+  # game = db.relationship('Game', back_populates='game_categories')
+  # category = db.relationship('Category', back_populates='game_categories')
 
-  def to_dict(self):
-    return {
-      "id": self.id,
-      "game_id": self.game_id,
-      "category_id": self.category_id,
-      "created_at": self.created_at,
-      "updated_at": self.updated_at
-    }
+  # def to_dict(self):
+  #   return {
+  #     "id": self.id,
+  #     "game_id": self.game_id,
+  #     "category_id": self.category_id,
+  #     "created_at": self.created_at,
+  #     "updated_at": self.updated_at
+  #   }

@@ -21,9 +21,11 @@ class Game(db.Model):
   # Relationships
   cart_items = db.relationship('Cart', back_populates='game')
   screenshots = db.relationship('GameScreenshot', back_populates="game")
-  categories = db.relationship('Category', secondary='game_categories', back_populates='games')
+  categories = db.relationship('Category', secondary='game_categories_table', back_populates='games')
+  # categories = db.relationship('Category', back_populates='games')
   reviews = db.relationship('Review', back_populates='game')
   libraries = db.relationship('Library', back_populates='game')
+  wishlist = db.relationship('Wishlist', back_populates='game')
 
   def to_dict(self):
     return {
@@ -37,9 +39,9 @@ class Game(db.Model):
       "main_banner_url": self.main_banner_url,
       "created_at": self.created_at,
       "updated_at": self.updated_at,
-      "cart_items": [cart_item.to_dict() for cart_item in self.cart_items],
+      # "cart_items": [cart_item.to_dict() for cart_item in self.cart_items],
       "screenshots": [screenshot.to_dict() for screenshot in self.screenshots],
       "categories": [category.to_dict() for category in self.categories],
       "reviews": [review.to_dict() for review in self.reviews],
-      "libraries": [library.to_dict() for library in self.libraries]
+      # "libraries": [library.to_dict() for library in self.libraries]
     }

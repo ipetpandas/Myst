@@ -14,8 +14,8 @@ class Wishlist(db.Model):
   updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 
   # Relationships
-  user = db.relationship('User', back_populates='reviews')
-  game = db.relationship('Game', back_populates='reviews')
+  user = db.relationship('User', back_populates='wishlist')
+  game = db.relationship('Game', back_populates='wishlist')
 
   def to_dict(self):
     return {
