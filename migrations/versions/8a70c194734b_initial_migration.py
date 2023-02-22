@@ -30,7 +30,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE categories_table SET SCHEMA {SCHEMA};")
 
     op.create_table('games_table',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -46,7 +46,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE games_Table SET SCHEMA {SCHEMA};")
 
     op.create_table('users_table',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -61,7 +61,7 @@ def upgrade():
     sa.UniqueConstraint('username')
     )
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE users_table SET SCHEMA {SCHEMA};")
 
     op.create_table('cart_table',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -74,7 +74,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE cart_table SET SCHEMA {SCHEMA};")
 
     op.create_table('game_categories_table',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -87,7 +87,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE game_categories_table SET SCHEMA {SCHEMA};")
 
     op.create_table('game_screenshots_table',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -99,7 +99,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE game_screenshots_table SET SCHEMA {SCHEMA};")
 
     op.create_table('libraries_table',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -112,7 +112,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE libraries_table SET SCHEMA {SCHEMA};")
 
     op.create_table('reviews_table',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -127,7 +127,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE reviews_table SET SCHEMA {SCHEMA};")
 
     op.create_table('wishlist_table',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -140,7 +140,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE wishlist_table SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 
