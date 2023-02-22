@@ -16,6 +16,12 @@ class Category(db.Model):
   games = db.relationship('Game', secondary='game_categories_table', back_populates='categories')
   # games = db.relationship('Game', back_populates='categories')
 
+  if environment == "production":
+    __table_args__ = {"schema": SCHEMA}
+    games = db.relationship('Game', secondary=f"{SCHEMA}.game_categories_table", back_populates='categories')
+  else:
+    games = db.relationship('Game', secondary='game_categories_table', back_populates='categories')
+
   def to_dict(self):
     return {
       "id": self.id,

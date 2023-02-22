@@ -27,6 +27,13 @@ class Game(db.Model):
   libraries = db.relationship('Library', back_populates='game')
   wishlist = db.relationship('Wishlist', back_populates='game')
 
+  if environment == "production":
+    __table_args__ = {"schema": SCHEMA}
+    categories = db.relationship('Category', secondary=f"{SCHEMA}.game_categories_table", back_populates='games')
+  else:
+    categories = db.relationship('Category', secondary='game_categories_table', back_populates='games')
+
+
   def to_dict(self):
     return {
       "id": self.id,
