@@ -4,15 +4,57 @@ from app.models import db, User, environment, SCHEMA
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password')
-    marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
-    bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+        username='Demo',
+        email='demo@aa.io',
+        password='password',
+        display_pic="https://steamavatar.io/img/1477351899v6iQb.jpg"
+    )
 
-    db.session.add(demo)
-    db.session.add(marnie)
-    db.session.add(bobbie)
+    Peter = User(
+        username='ipetpandas',
+        email='peter@aa.io',
+        password='password',
+        display_pic="https://i.pinimg.com/originals/f9/8e/56/f98e56072c2b5126f3bdbe2670c94019.jpg"
+    )
+
+    Alex = User(
+        username='alexle',
+        email='alexle@aa.io',
+        password='password',
+        display_pic="https://cdn.myanimelist.net/images/characters/11/483437.jpg"
+    )
+
+    John = User(
+        username='john_doe',
+        email='john_doe@aa.io',
+        password='password',
+        display_pic="https://steamavatar.io/img/1477351906o9rtl.jpg"
+    )
+
+    Jane = User(
+        username='jane_doe',
+        email='jane_doe@aa.io',
+        password='password',
+        display_pic="https://steamavatar.io/img/14777876487vBgd.jpg"
+    )
+
+    Austin = User(
+        username='austinbby',
+        email='austin@aa.io',
+        password='password',
+        display_pic="https://steamavatar.io/img/1477741506Tccln.jpg"
+    )
+
+    db.session.add_all(
+        [
+            demo,
+            Peter,
+            Alex,
+            John,
+            Jane,
+            Austin
+        ]
+    )
     db.session.commit()
 
 
@@ -27,5 +69,5 @@ def undo_users():
         db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
         db.session.execute("DELETE FROM users")
-        
+
     db.session.commit()
