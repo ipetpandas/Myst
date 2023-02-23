@@ -26,6 +26,13 @@ class User(db.Model, UserMixin):
     wishlist = db.relationship('Wishlist', back_populates='user')
     games = db.relationship('Game', secondary="cart_table", back_populates='users')
 
+    if environment == "production":
+        __table_args__ = {"schema": SCHEMA}
+        games = db.relationship('Game', secondary=f"{SCHEMA}.cart_table", back_populates='users')
+    else:
+        games = db.relationship('Game', secondary="cart_table", back_populates='users')
+
+
 
     @property
     def password(self):
