@@ -17,20 +17,21 @@ function App() {
   return (
     <>
       <div className="app-container">
-        <Navigation isLoaded={isLoaded} />
-        {isLoaded && (
-          <Switch>
-            <Route exact path="/">
-              <MainPage />
-            </Route>
-            <Route path="/login">
-              <LoginFormPage />
-            </Route>
-            <Route path="/signup">
-              <SignupFormPage />
-            </Route>
-          </Switch>
-        )}
+        {/* <Navigation isLoaded={isLoaded} />
+        {isLoaded && ( */}
+        <Switch>
+          <Route exact path="/">
+            <Navigation />
+            <MainPage />
+          </Route>
+          <Route exact path="/login">
+            <LoginFormPage />
+          </Route>
+          <Route exact path="/signup">
+            <SignupFormPage />
+          </Route>
+        </Switch>
+        {/* )} */}
       </div>
     </>
   );

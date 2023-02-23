@@ -1,11 +1,23 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { NavLink, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
+import OpenModalButton from "../OpenModalButton";
 import "./Navigation.css";
+import { logout } from "../../store/session";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
+  const history = useHistory();
+  const user = useSelector((state) => state.session.user);
+  const dispatch = useDispatch();
+
+  const goLogout = (e) => {
+    e.preventDefault();
+
+    dispatch(logout());
+    history.push("/");
+  };
 
   return (
     <div className="nav-container">
@@ -35,10 +47,29 @@ function Navigation({ isLoaded }) {
           <i className="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
-      <div className="nav-buttons-container">
-        <button className="nav-login">Login</button>
-        <button className="nav-register">Register</button>
-      </div>
+      {!user ? (
+        <div className="nav-buttons-container">
+          <NavLink exact to="/login">
+            <button className="nav-login">Login</button>
+          </NavLink>
+          <NavLink exact to="/signup">
+            <button className="nav-register">Register</button>
+          </NavLink>
+        </div>
+      ) : (
+        <div className="nav-buttons-container">
+          <div className="welcome-back-container">
+            <div className="welcome-back">Welcome back,&nbsp;</div>
+            <div className="welcome-back-username">{user.username}</div>
+            <div className="welcome-back-avatar">
+              <img src={user.display_pic}></img>
+            </div>
+          </div>
+          <button onClick={goLogout} className="nav-login">
+            Logout
+          </button>
+        </div>
+      )}
       {/* {isLoaded && (
         <li>
           <ProfileButton user={sessionUser} />

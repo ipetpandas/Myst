@@ -1,4 +1,5 @@
 .nav-container {
+  color: white;
   position: absolute;
   width: 100%;
   height: 10%;
@@ -85,8 +86,38 @@ button {
   outline: none;
 }
 
+.welcome-back-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-right: 20px;
+}
+
+.welcome-back-username {
+  color: #66c0f4;
+}
+
+.welcome-back-avatar {
+  margin-left: 20px;
+  width: 35px;
+  height: 35px;
+}
+
+.welcome-back-avatar img {
+  object-fit: cover;
+  border-radius: 10px;
+}
+
 .nav-buttons-container {
   font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-login {
