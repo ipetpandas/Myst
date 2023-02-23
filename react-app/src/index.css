@@ -1,1 +1,20 @@
 /* TODO Add site wide styles */
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&family=Noto+Sans:wght@400;900&family=Roboto:wght@300;400&display=swap");
+
+* {
+  font-family: "Kanit", sans-serif;
+}
+
+a:visited {
+  color: white;
+}
+
+body {
+  background-color: rgb(27, 27, 27);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

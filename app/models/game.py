@@ -13,6 +13,7 @@ class Game(db.Model):
   developer = db.Column(db.String(255), nullable=False)
   publisher = db.Column(db.String(255), nullable=False)
   price = db.Column(db.Float, nullable=True)
+  large_featured_banner_url = db.Column(db.String, nullable=True)
   featured_banner_url = db.Column(db.String, nullable=True)
   main_banner_url = db.Column(db.String(1000), nullable=False)
   created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
@@ -31,8 +32,10 @@ class Game(db.Model):
   if environment == "production":
     __table_args__ = {"schema": SCHEMA}
     categories = db.relationship('Category', secondary=f"{SCHEMA}.game_categories_table", back_populates='games')
+    users = db.relationship("User", secondary=f"{SCHEMA}.cart_table", back_populates="games")
   else:
     categories = db.relationship('Category', secondary='game_categories_table', back_populates='games')
+    users = db.relationship("User", secondary="cart_table", back_populates="games")
 
 
   def to_dict(self):
@@ -43,6 +46,7 @@ class Game(db.Model):
       "developer": self.developer,
       "publisher": self.publisher,
       "price": self.price,
+      "large_featured_banner_url": self.large_featured_banner_url,
       "featured_banner_url": self.featured_banner_url,
       "main_banner_url": self.main_banner_url,
       "created_at": self.created_at,

@@ -1,0 +1,190 @@
+/* Slideshow container */
+.slideshow-container {
+  width: 100%;
+  position: relative;
+  margin: auto;
+  overflow-x: hidden;
+}
+
+.slideshow-container img {
+  filter: brightness(50%);
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.textContainer {
+  position: absolute;
+  z-index: 1;
+  top: 42%;
+  left: 5%;
+}
+
+.game-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-title {
+  color: white;
+  font-size: 56px;
+  font-weight: 800;
+  /* padding: 8px 12px; */
+  /* position: absolute; */
+  /* top: 500px;
+  left: -700px; */
+  /* width: 100%; */
+  text-align: center;
+}
+
+.game-price {
+  margin-left: 1px;
+  font-size: 24px;
+  color: white;
+}
+
+.game-button {
+  border: 1px solid rgb(255, 255, 255, 0.5);
+  background-color: rgb(27, 40, 56, 0.9);
+  color: white;
+  margin-top: 15px;
+  padding: 15px 55px 15px 55px;
+  cursor: pointer;
+  transition: 0.4s;
+  font-size: 18px;
+}
+
+.game-button:hover {
+  background-color: white;
+  color: black;
+}
+
+/* The dots/bullets/indicators */
+.dots {
+  /* position: absolute; */
+  /* bottom: 0; */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: rgb(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: inline-block;
+  flex-direction: row;
+  transition: background-color 0.6s ease;
+}
+
+.dotactive,
+.dot:hover {
+  background-color: #ffffff;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lrg-featured-banner-url {
+  width: 100%;
+  object-fit: cover;
+  height: 100vh;
+}
+
+.bottom-container {
+  position: absolute;
+  width: 100%;
+  bottom: 10%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.featured-header {
+  margin-top: 90px;
+  display: flex;
+  color: white;
+  font-weight: bold;
+  /* justify-content: center; */
+}
+
+.thumbnails {
+  /* position: absolute; */
+  /* width: 100%; */
+  /* bottom: 10%; */
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin: 15px 0px;
+  cursor: pointer;
+}
+
+.thumbnail {
+  height: 120px;
+  width: 280px;
+  margin: 0px 5px;
+}
+
+.featured-banner-url {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  filter: brightness(50%);
+  transition: 0.4s;
+}
+
+.active .featured-banner-url {
+  filter: brightness(100%);
+  box-sizing: border-box;
+  outline: 3px solid rgb(255, 255, 255, 0.8);
+}
+
+.featured-banner-url:hover {
+  filter: brightness(100%);
+}
