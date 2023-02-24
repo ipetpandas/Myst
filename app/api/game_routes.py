@@ -1,6 +1,6 @@
 from flask import Flask, Blueprint, request
 from flask_login import login_required, current_user
-from app.models import db, Game, Category, GameCategory
+from app.models import db, Game, Category, GameCategory, Review
 
 # url_prefix="api/games"
 game_routes = Blueprint("games", __name__)
@@ -30,3 +30,17 @@ def get_games_by_category(category_id):
   if not category:
     return {"errors": ["Category does not exist"]}, 404
   return {'games_by_category': [game.to_dict() for game in category.games]}
+
+####################################################
+
+# REVIEWS
+
+@game_routes.route("/<int:game_id>/reviews/")
+def get_all_reviews_by_game_id(game_id):
+  reviews = Review.query.filter(Review.game_id == game_id).all()
+
+  dict = {}
+  for review in reviews:
+    dict[review.author_id] = review.to_dict()
+  print("REVIEWS FROM BACKEND -------->", dict)
+  return {"reviews": dict}

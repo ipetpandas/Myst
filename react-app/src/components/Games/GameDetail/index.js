@@ -5,10 +5,12 @@ import { thunkReadGame } from "../../../store/games";
 import "./GameDetail.css";
 import { thunkAddToCart } from "../../../store/carts";
 import { thunkReadUserLibrary } from "../../../store/libraries";
+import Reviews from "./Reviews";
 
 const Game = () => {
   const dispatch = useDispatch();
   let [isLoaded, setIsLoaded] = useState(false);
+  let [isLibraryLoaded, setIsLibraryLoaded] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
   const history = useHistory();
   const { game_id } = useParams();
@@ -28,7 +30,7 @@ const Game = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(thunkReadUserLibrary()).then(() => setIsLoaded(true));
+    dispatch(thunkReadUserLibrary()).then(() => setIsLibraryLoaded(true));
   }, [dispatch]);
 
   const addToCart = () => {
@@ -40,68 +42,85 @@ const Game = () => {
     }
   };
   return (
-    <div className="game-detail-parent">
-      <div className="game-detail-slideshow-container">
-        <div className="game-detail-image">
-          {isLoaded &&
-            singleGame.screenshots.map((screenshot, index) => {
-              return (
-                <div className={activeTab === index ? "active" : "hidden"}>
-                  <img src={screenshot.screenshot_url}></img>
-                </div>
-              );
-            })}
-        </div>
-        <div className="game-detail-screenshots">
-          {isLoaded &&
-            singleGame.screenshots.map((screenshot, index) => {
-              return (
-                <div className="screenshot-thumbnail">
-                  <img
-                    onClick={() => handleTabClick(index)}
-                    src={screenshot.screenshot_url}
-                    className={`tab ${activeTab === index ? "active" : ""}`}
-                  ></img>
-                </div>
-              );
-            })}
-        </div>
-        {isLoaded &&
-          singleGame.screenshots.map((screenshot, index) => {
-            return (
-              <div className="screenshot-container">
-                {/* <img src={screenshot.screenshot_url[activeTab]}></img> */}
+    <>
+      {isLoaded && (
+        <>
+          <div className="game-detail-parent">
+            <div className="game-detail-slideshow-container">
+              <div className="game-detail-image">
+                {isLoaded &&
+                  singleGame.screenshots?.map((screenshot, index) => {
+                    return (
+                      <div
+                        className={activeTab === index ? "active" : "hidden"}
+                      >
+                        <img src={screenshot.screenshot_url}></img>
+                      </div>
+                    );
+                  })}
               </div>
-            );
-          })}
-      </div>
-      <div className="game-detail-container">
-        <div className="game-detail-main-img-container">
-          <img
-            className="game-detail-main-img"
-            src={singleGame.main_banner_url}
-          ></img>
-        </div>
-        <div className="game-detail-title">{singleGame.title}</div>
-        <div className="game-detail-description">{singleGame.description}</div>
-        <div className="game-detail-price">
-          {singleGame.price === 0 ? "FREE TO PLAY" : `$` + singleGame.price}
-        </div>
-        <div className="add-to-cart-container">
-          {!user ? (
-            <NavLink to="/login">
-              <div className="login-to-purchase">Login to Purchase</div>
-            </NavLink>
-          ) : library[game_id] && user ? (
-            <div className="already-purchased">In Library</div>
-          ) : (
-            <button onClick={addToCart} className="add-to-cart-btn">
-              Add To Cart
-            </button>
-          )}
-        </div>
-      </div>
-    </div>
+              <div className="game-detail-screenshots">
+                {isLoaded &&
+                  singleGame.screenshots?.map((screenshot, index) => {
+                    return (
+                      <div className="screenshot-thumbnail">
+                        <img
+                          onClick={() => handleTabClick(index)}
+                          src={screenshot.screenshot_url}
+                          className={`tab ${
+                            activeTab === index ? "active" : ""
+                          }`}
+                        ></img>
+                      </div>
+                    );
+                  })}
+              </div>
+              {isLoaded &&
+                singleGame.screenshots?.map((screenshot, index) => {
+                  return (
+                    <div className="screenshot-container">
+                      {/* <img src={screenshot.screenshot_url[activeTab]}></img> */}
+                    </div>
+                  );
+                })}
+            </div>
+            <div className="game-detail-container">
+              <div className="game-detail-main-img-container">
+                <img
+                  className="game-detail-main-img"
+                  src={singleGame.main_banner_url}
+                ></img>
+              </div>
+              <div className="game-detail-title">{singleGame.title}</div>
+              <div className="game-detail-description">
+                {singleGame.description}
+              </div>
+              <div className="game-detail-price">
+                {isLoaded & (singleGame.price === 0)
+                  ? "FREE TO PLAY"
+                  : `$` + singleGame.price}
+              </div>
+              <div className="add-to-cart-container">
+                {isLibraryLoaded && !user ? (
+                  <NavLink to="/login">
+                    <div className="login-to-purchase">Login to Purchase</div>
+                  </NavLink>
+                ) : isLibraryLoaded && library[game_id] && user ? (
+                  <div className="already-purchased">In Library</div>
+                ) : (
+                  isLibraryLoaded && (
+                    <button onClick={addToCart} className="add-to-cart-btn">
+                      Add To Cart
+                    </button>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
+          <Reviews game_id={game_id} />
+        </>
+      )}
+    </>
   );
 };
 

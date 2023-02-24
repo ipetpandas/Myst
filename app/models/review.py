@@ -25,6 +25,7 @@ class Review(db.Model):
       "author_id": self.author_id,
       "game_id": self.game_id,
       "recommended": self.recommended,
+      "review": self.review,
       "created_at": self.created_at,
       "updated_at": self.updated_at,
     }
