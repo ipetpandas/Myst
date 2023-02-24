@@ -1,6 +1,7 @@
 from flask import Flask, Blueprint, request
 from flask_login import login_required, current_user
 from app.models import db, Game, Category, GameCategory, Review
+from app.forms import ReviewForm
 
 # url_prefix="api/games"
 game_routes = Blueprint("games", __name__)
@@ -34,7 +35,7 @@ def get_games_by_category(category_id):
 ####################################################
 
 # REVIEWS
-
+# GET
 @game_routes.route("/<int:game_id>/reviews/")
 def get_all_reviews_by_game_id(game_id):
   reviews = Review.query.filter(Review.game_id == game_id).all()
@@ -44,3 +45,52 @@ def get_all_reviews_by_game_id(game_id):
     dict[review.author_id] = review.to_dict()
   print("REVIEWS FROM BACKEND -------->", dict)
   return {"reviews": dict}
+
+# CREATE
+@game_routes.route("/<int:game_id>/reviews/", methods=["POST"])
+@login_required
+def create_review(game_id):
+  form = ReviewForm()
+  form["csrf_token"].data = request.cookies["csrf_token"]
+  existing_review = Review.query.filter(Review.author_id == current_user.id, Review.game_id == game_id).first()
+  if existing_review:
+      return {"errors": ["Review already exists"]}
+  if form.validate_on_submit():
+    review = Review(
+      author_id=int(current_user.id),
+      game_id=int(game_id),
+      recommended=form.data["recommended"],
+      review=form.data["review"]
+    )
+    db.session.add(review)
+    db.session.commit()
+    return {"review": review.to_dict()}, 201
+  return {"errors": ["Could not complete request"]}
+
+# UPDATE
+@game_routes.route("/<int:game_id>/reviews/", methods=["PUT"])
+@login_required
+def update_review(game_id):
+  form = ReviewForm()
+  form["csrf_token"].data = request.cookies["csrf_token"]
+  existing_review = Review.query.filter(Review.author_id == current_user.id, Review.game_id == game_id).first()
+  if not existing_review:
+      return {"errors": ["Could not complete request"]}
+  if form.validate_on_submit():
+    existing_review.recommended = form.data["recommended"]
+    existing_review.review = form.data["review"]
+    db.session.commit()
+    return {"review": existing_review.to_dict()}, 201
+  return {"errors": ["Could not complete request"]}
+
+# DELETE
+@game_routes.route("/<int:game_id>/reviews/", methods=["DELETE"])
+@login_required
+def delete_review(game_id):
+  review = Review.query.filter(Review.author_id == current_user.id, Review.game_id == game_id).first()
+  print("DELETE THIS REVIEW =========>", review)
+  if review:
+    db.session.delete(review)
+    db.session.commit()
+    return {"message": "Review successfully deleted."}
+  return {"errors": ["Could not complete request"]}

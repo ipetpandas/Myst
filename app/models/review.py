@@ -28,4 +28,6 @@ class Review(db.Model):
       "review": self.review,
       "created_at": self.created_at,
       "updated_at": self.updated_at,
+      "title": self.game.title,
+      "main_banner_url": self.game.main_banner_url
     }

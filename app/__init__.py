@@ -10,6 +10,7 @@ from .api.auth_routes import auth_routes
 from .api.game_routes import game_routes
 from .api.cart_routes import cart_routes
 from .api.library_routes import library_routes
+from .api.review_routes import review_routes
 # from .api import (
 #     user_routes,
 #     auth_routes,
@@ -41,6 +42,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(game_routes, url_prefix='/api/games')
 app.register_blueprint(cart_routes, url_prefix='/api/carts')
 app.register_blueprint(library_routes, url_prefix='/api/libraries')
+app.register_blueprint(review_routes, url_prefix='/api/reviews')
 db.init_app(app)
 Migrate(app, db)
 
