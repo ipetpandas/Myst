@@ -5,7 +5,7 @@ import { thunkReadGame } from "../../../store/games";
 import "./GameDetail.css";
 import { thunkAddToCart } from "../../../store/carts";
 import { thunkReadUserLibrary } from "../../../store/libraries";
-import Reviews from "./Reviews";
+import GameReviews from "./GameReviews";
 
 const Game = () => {
   const dispatch = useDispatch();
@@ -117,7 +117,7 @@ const Game = () => {
               </div>
             </div>
           </div>
-          <Reviews game_id={game_id} />
+          <GameReviews game_id={game_id} />
         </>
       )}
     </>

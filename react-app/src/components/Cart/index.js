@@ -5,6 +5,7 @@ import { thunkClearCart, thunkReadUserCart } from "../../store/carts";
 import { useSelector } from "react-redux";
 import "./Cart.css";
 import { thunkAddToLibrary } from "../../store/libraries";
+import { thunkDeleteCartItem } from "../../store/carts";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -46,6 +47,11 @@ const Cart = () => {
     history.push("/library");
   };
 
+  const deleteItem = (gameId) => {
+    dispatch(thunkDeleteCartItem(gameId));
+    console.log("DELETE CART ITEM");
+  };
+
   return (
     <div className="cart-container">
       <div className="cart-game-card-container">
@@ -66,7 +72,10 @@ const Cart = () => {
                     </div>
                   </div>
                   <div className="cart-game-delete">
-                    <button className="cart-delete-btn">
+                    <button
+                      className="cart-delete-btn"
+                      onClick={() => deleteItem(game.id)}
+                    >
                       <span>
                         <i className="fa-solid fa-trash fa-sm"></i>
                       </span>

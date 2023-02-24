@@ -1,4 +1,8 @@
 const READ_REVIEWS_BY_GAME_ID = `reviews/READ_REVIEWS_BY_GAME_ID`;
+const EDIT_REVIEW_BY_GAME_ID = `reviews/EDIT_REVIEW_BY_GAME_ID`;
+const EDIT_REVIEW_BY_REVIEW_ID = `reviews/EDIT_REVIEW_BY_REVIEW_ID`;
+const DELETE_REVIEW_BY_GAME_ID = `reviews/DELETE_REVIEW_BY_GAME_ID`;
+const DELETE_REVIEW_BY_REVIEW_ID = `reviews/DELETE_REVIEW_BY_REVIEW_ID`;
 
 //-------------------------------------------------------
 
@@ -8,6 +12,32 @@ const READ_REVIEWS_BY_GAME_ID = `reviews/READ_REVIEWS_BY_GAME_ID`;
 const actionReadReviewsByGameId = (reviews) => ({
   type: READ_REVIEWS_BY_GAME_ID,
   reviews: reviews.reviews,
+});
+
+// EDIT REVIEW BY GAME ID
+const actionEditReviewByGameId = (review) => ({
+  type: EDIT_REVIEW_BY_GAME_ID,
+  review: review.review,
+});
+
+// EDIT REVIEW BY REVIEW ID
+const actionEditReviewByReviewId = (review) => ({
+  type: EDIT_REVIEW_BY_REVIEW_ID,
+  review: review.review,
+});
+
+// DELETE REVIEW BY GAME ID
+const actionDeleteReviewByGameId = (response) => ({
+  type: DELETE_REVIEW_BY_GAME_ID,
+  message: response.message,
+  author_id: response.author_id,
+});
+
+// DELETE REVIEW BY REVIEW ID
+const actionDeleteReviewByReviewId = (response) => ({
+  type: DELETE_REVIEW_BY_GAME_ID,
+  message: response.message,
+  author_id: response.author_id,
 });
 
 // Thunks
@@ -31,9 +61,76 @@ export const thunkReadReviewsByGameId = (game_id) => async (dispatch) => {
   }
 };
 
+// EDIT
+export const thunkEditReviewByGameId =
+  (game_id, user_id, review) => async (dispatch) => {
+    let res = await fetch(`/api/games/${game_id}/reviews`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(review),
+    });
+
+    if (res.ok) {
+      const updatedReview = await res.json();
+      dispatch(actionEditReviewByGameId(review));
+      return updatedReview;
+    } else if (res.status < 500) {
+      const data = await res.json();
+      // console.log("EDIT THUNK ELSE IF ==========>", data);
+      if (data.errors) {
+        return data.errors;
+      }
+    } else {
+      return ["An error occurred. Please try again."];
+    }
+  };
+
+// DELETE
+export const thunkDeleteReviewByGameId = (game_id) => async (dispatch) => {
+  let res = await fetch(`/api/games/${game_id}/reviews`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (res.ok) {
+    const response = await res.json();
+    dispatch(actionDeleteReviewByGameId(response));
+    return response;
+  } else if (res.status < 500) {
+    const data = await res.json();
+    // console.log("EDIT THUNK ELSE IF ==========>", data);
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ["An error occurred. Please try again."];
+  }
+};
+
+export const thunkDeleteReviewByReviewId = (review_id) => async (dispatch) => {
+  let res = await fetch(`/api/reviews/${review_id}`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (res.ok) {
+    const response = await res.json();
+    dispatch(actionDeleteReviewByReviewId(response));
+    return response;
+  } else if (res.status < 500) {
+    const data = await res.json();
+    // console.log("EDIT THUNK ELSE IF ==========>", data);
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ["An error occurred. Please try again."];
+  }
+};
+
 // Reducer
 
-let initialState = {};
+let initialState = { gameReviews: {}, userReviews: {} };
 
 const reviewsReducer = (state = initialState, action) => {
   let newState;
@@ -41,7 +138,19 @@ const reviewsReducer = (state = initialState, action) => {
   switch (action.type) {
     case READ_REVIEWS_BY_GAME_ID:
       newState = { ...state };
-      newState = action.reviews;
+      newState.gameReviews = action.reviews;
+      return newState;
+    case EDIT_REVIEW_BY_GAME_ID:
+      newState = { ...state };
+      newState.gameReviews[action.review.author_id] = action.review;
+      return newState;
+    case DELETE_REVIEW_BY_GAME_ID:
+      newState = { ...state };
+      delete newState.gameReviews[action.author_id];
+      return newState;
+    case DELETE_REVIEW_BY_REVIEW_ID:
+      newState = { ...state };
+      delete newState.gameReviews[action.author_id];
       return newState;
     default:
       return state;

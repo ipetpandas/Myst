@@ -43,19 +43,11 @@ def add_to_cart():
   else:
     return {"errors": ["Could not complete request"]}
 
-# DELETE ALL USER'S CART GAMES
-@cart_routes.route("/clear", methods=["DELETE"])
-@login_required
-def clear_cart():
-  cart_items = current_user.games
-  cart_items.clear()
-  db.session.commit()
-  return {"message": "Successfully cleared cart"}, 200
-
 # DELETE A USER'S CART GAME
 @cart_routes.route("/", methods=["DELETE"])
 @login_required
 def delete_game():
+  print("CLEAR ONE ============>")
   # pass body with game_id
   data = request.json
   # extract the game_id from our body
@@ -73,3 +65,13 @@ def delete_game():
     except ValueError:
       return {"errors": ["This item is not in your cart"]}
   return {"errors": ["Could not complete request"]}
+
+# DELETE ALL USER'S CART GAMES
+@cart_routes.route("/clear", methods=["DELETE"])
+@login_required
+def clear_cart():
+  print("CLEAR ALL ============>")
+  cart_items = current_user.games
+  cart_items.clear()
+  db.session.commit()
+  return {"message": "Successfully cleared cart"}, 200

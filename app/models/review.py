@@ -29,5 +29,7 @@ class Review(db.Model):
       "created_at": self.created_at,
       "updated_at": self.updated_at,
       "title": self.game.title,
-      "main_banner_url": self.game.main_banner_url
+      "main_banner_url": self.game.main_banner_url,
+      "author_name": self.author.username,
+      "author_display_pic": self.author.display_pic
     }

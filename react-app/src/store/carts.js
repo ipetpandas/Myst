@@ -1,6 +1,7 @@
 const READ_USER_CART = `cart/READ_USER_CART`;
 const ADD_TO_CART = `cart/ADD_TO_CART`;
 const CLEAR_CART = `cart/CLEAR_CART`;
+const DELETE_CART_ITEM = `cart/DELETE_CART_ITEM`;
 
 //-------------------------------------------------------
 
@@ -21,6 +22,13 @@ const actionAddToCart = (cart) => ({
 // CLEAR CART
 const actionClearCart = () => ({
   type: CLEAR_CART,
+});
+
+// DELETE CART ITEM
+const deleteCartItem = (game) => ({
+  type: DELETE_CART_ITEM,
+  game: game.game,
+  game_id: game.game_id,
 });
 
 //-------------------------------------------------------
@@ -88,6 +96,28 @@ export const thunkClearCart = () => async (dispatch) => {
   }
 };
 
+// DELETE
+export const thunkDeleteCartItem = (game_id) => async (dispatch) => {
+  let res = await fetch(`/api/carts/`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ game_id }),
+  });
+
+  if (res.ok) {
+    const data = await res.json(); // backend returns full cart with new game added
+    dispatch(deleteCartItem(data));
+    return data;
+  } else if (res.status < 500) {
+    const data = await res.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ["An error occurred. Please try again."];
+  }
+};
+
 //-------------------------------------------------------
 
 // Reducer
@@ -113,6 +143,10 @@ const cartReducer = (state = initialState, action) => {
     case CLEAR_CART:
       newState = { ...state };
       newState = {};
+      return newState;
+    case DELETE_CART_ITEM:
+      newState = { ...state };
+      delete newState[action.game_id];
       return newState;
     default:
       return state;

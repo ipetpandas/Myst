@@ -88,9 +88,8 @@ def update_review(game_id):
 @login_required
 def delete_review(game_id):
   review = Review.query.filter(Review.author_id == current_user.id, Review.game_id == game_id).first()
-  print("DELETE THIS REVIEW =========>", review)
   if review:
     db.session.delete(review)
     db.session.commit()
-    return {"message": "Review successfully deleted."}
+    return {"message": "Review successfully deleted.", "author_id": current_user.id}
   return {"errors": ["Could not complete request"]}
