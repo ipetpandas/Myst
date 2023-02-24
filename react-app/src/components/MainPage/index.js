@@ -9,19 +9,17 @@ const MainPage = () => {
   let [isLoaded, setIsLoaded] = useState(false);
   const history = useHistory();
 
-  let allGames = useSelector((state) => state.games);
+  const allGames = useSelector((state) => state.games.allGames);
   // console.log(Object.values(allGames));
 
   useEffect(() => {
-    dispatch(thunkReadAllGames());
+    dispatch(thunkReadAllGames()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (
-    <div className="carousel-container">
-      {Object.values(allGames).length && (
-        <FeaturedCarousel games={Object.values(allGames)} />
-      )}
-    </div>
+    <section className="carousel-container">
+      {isLoaded && <FeaturedCarousel />}
+    </section>
   );
 };
 

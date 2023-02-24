@@ -13,6 +13,7 @@ class Game(db.Model):
   developer = db.Column(db.String(255), nullable=False)
   publisher = db.Column(db.String(255), nullable=False)
   price = db.Column(db.Float, nullable=True)
+  description = db.Column(db.String(255), nullable=False)
   large_featured_banner_url = db.Column(db.String, nullable=True)
   featured_banner_url = db.Column(db.String, nullable=True)
   main_banner_url = db.Column(db.String(1000), nullable=False)
@@ -46,6 +47,7 @@ class Game(db.Model):
       "developer": self.developer,
       "publisher": self.publisher,
       "price": self.price,
+      "description": self.description,
       "large_featured_banner_url": self.large_featured_banner_url,
       "featured_banner_url": self.featured_banner_url,
       "main_banner_url": self.main_banner_url,

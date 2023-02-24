@@ -1,0 +1,68 @@
+.game-detail-parent {
+  background-image: linear-gradient(transparent, rgb(23, 26, 33));
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.game-detail-container {
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-evenly; */
+  max-width: 460px;
+  /* height: 50%; */
+}
+
+.game-detail-screenshots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  /* width: 500px; */
+}
+
+.game-detail-screenshots:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.screenshot-thumbnail {
+  float: left;
+  width: 150px;
+  padding: 10px;
+}
+
+.screenshot-thumbnail img {
+  opacity: 0.7;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.screenshot-thumbnail img:hover {
+  opacity: 1;
+}
+
+.game-detail-slideshow-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-detail-screen-container {
+  position: relative;
+  display: none;
+}
+
+#expandedImg {
+  width: 100%;
+}
+
+.add-to-cart-btn {
+  cursor: pointer;
+}

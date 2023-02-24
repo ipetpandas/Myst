@@ -97,6 +97,10 @@ button {
   margin-right: 20px;
 }
 
+.welcome-back {
+  margin-left: 20px;
+}
+
 .welcome-back-username {
   color: #66c0f4;
 }
@@ -153,4 +157,16 @@ button {
 
 .hidden {
   display: none;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  padding: 10px;
+  background: #fff;
+  border: 3px solid #000;
+  color: #000;
+  text-align: center;
+  font: 32px Arial, sans-serif;
 }

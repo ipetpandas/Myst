@@ -1,20 +1,16 @@
 """Initial migration.
 
-Revision ID: e81aa2e2ecc4
-Revises:
-Create Date: 2023-02-22 13:01:07.453329
+Revision ID: 82008e4e241b
+Revises: 
+Create Date: 2023-02-23 13:44:52.363968
 
 """
 from alembic import op
 import sqlalchemy as sa
 
-import os
-environment = os.getenv("FLASK_ENV")
-SCHEMA = os.environ.get("SCHEMA")
-
 
 # revision identifiers, used by Alembic.
-revision = 'e81aa2e2ecc4'
+revision = '82008e4e241b'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -29,8 +25,6 @@ def upgrade():
     sa.Column('updated_at', sa.DateTime(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE categories_table SET SCHEMA {SCHEMA};")
     op.create_table('games_table',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(length=255), nullable=False),
@@ -38,6 +32,7 @@ def upgrade():
     sa.Column('developer', sa.String(length=255), nullable=False),
     sa.Column('publisher', sa.String(length=255), nullable=False),
     sa.Column('price', sa.Float(), nullable=True),
+    sa.Column('description', sa.String(length=255), nullable=False),
     sa.Column('large_featured_banner_url', sa.String(), nullable=True),
     sa.Column('featured_banner_url', sa.String(), nullable=True),
     sa.Column('main_banner_url', sa.String(length=1000), nullable=False),
@@ -45,8 +40,6 @@ def upgrade():
     sa.Column('updated_at', sa.DateTime(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE games_table SET SCHEMA {SCHEMA};")
     op.create_table('users_table',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('username', sa.String(length=40), nullable=False),
@@ -59,8 +52,6 @@ def upgrade():
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE users_table SET SCHEMA {SCHEMA};")
     op.create_table('cart_table',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -71,8 +62,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users_table.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE cart_table SET SCHEMA {SCHEMA};")
     op.create_table('game_categories_table',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('game_id', sa.Integer(), nullable=False),
@@ -83,8 +72,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['game_id'], ['games_table.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE game_categories_table SET SCHEMA {SCHEMA};")
     op.create_table('game_screenshots_table',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('game_id', sa.Integer(), nullable=False),
@@ -94,8 +81,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['game_id'], ['games_table.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE game_screenshots_table SET SCHEMA {SCHEMA};")
     op.create_table('libraries_table',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -106,8 +91,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users_table.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE libraries_table SET SCHEMA {SCHEMA};")
     op.create_table('reviews_table',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('author_id', sa.Integer(), nullable=False),
@@ -120,8 +103,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['game_id'], ['games_table.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE reviews_table SET SCHEMA {SCHEMA};")
     op.create_table('wishlist_table',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
@@ -132,8 +113,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users_table.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    if environment == "production":
-        op.execute(f"ALTER TABLE wishlist_table SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 

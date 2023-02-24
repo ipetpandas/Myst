@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./Carousel.css";
 
-const FeaturedCarousel = (games) => {
+const FeaturedCarousel = () => {
   // const useEffect = useEffect();
+  const games = useSelector((state) => state.games.allGames);
+
   const [slideIndex, setSlideIndex] = useState(1);
   console.log("GAMES", games.games);
-  let featuredGames = games.games.filter(
+  let featuredGames = Object.values(games).filter(
     (game) => game.large_featured_banner_url
   );
 
@@ -67,7 +71,9 @@ const FeaturedCarousel = (games) => {
                     </div>
 
                     <div className="game-button-container">
-                      <button className="game-button">More Info</button>
+                      <NavLink exact to={`/games/${game.id}`}>
+                        <button className="game-button">More Info</button>
+                      </NavLink>
                     </div>
                     <div className="featured-header">
                       Featured & Recommended

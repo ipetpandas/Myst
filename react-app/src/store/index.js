@@ -2,10 +2,14 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import session from "./session";
 import gameReducer from "./games";
+import cartReducer from "./carts";
+import libraryReducer from "./libraries";
 
 const rootReducer = combineReducers({
   session,
   games: gameReducer,
+  cart: cartReducer,
+  library: libraryReducer,
 });
 
 let enhancer;

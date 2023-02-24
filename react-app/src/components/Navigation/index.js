@@ -5,11 +5,13 @@ import ProfileButton from "./ProfileButton";
 import OpenModalButton from "../OpenModalButton";
 import "./Navigation.css";
 import { logout } from "../../store/session";
+import { useState } from "react";
 
 function Navigation({ isLoaded }) {
-  const sessionUser = useSelector((state) => state.session.user);
+  // const sessionUser = useSelector((state) => state.session.user);
   const history = useHistory();
   const user = useSelector((state) => state.session.user);
+  const [cartNumber, setCartNumber] = useState(0);
   const dispatch = useDispatch();
 
   const goLogout = (e) => {
@@ -59,6 +61,12 @@ function Navigation({ isLoaded }) {
       ) : (
         <div className="nav-buttons-container">
           <div className="welcome-back-container">
+            <NavLink exact to="/cart">
+              <div className="welcome-back-cart">
+                <i className="fa-solid fa-cart-shopping fa-lg"></i>
+                {/* <div className="circle">{cartNumber}</div> */}
+              </div>
+            </NavLink>
             <div className="welcome-back">Welcome back,&nbsp;</div>
             <div className="welcome-back-username">{user.username}</div>
             <div className="welcome-back-avatar">

@@ -74,7 +74,7 @@
   /* top: 500px;
   left: -700px; */
   /* width: 100%; */
-  text-align: center;
+  /* text-align: center; */
 }
 
 .game-price {
@@ -90,7 +90,7 @@
   margin-top: 15px;
   padding: 15px 55px 15px 55px;
   cursor: pointer;
-  transition: 0.4s;
+  transition: 0.8s;
   font-size: 18px;
 }
 
@@ -176,13 +176,13 @@
   align-items: center;
   flex-direction: row;
   margin: 15px 0px;
-  cursor: pointer;
 }
 
 .thumbnail {
   height: 120px;
   width: 280px;
   margin: 0px 5px;
+  cursor: pointer;
 }
 
 .featured-banner-url {

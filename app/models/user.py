@@ -33,7 +33,6 @@ class User(db.Model, UserMixin):
         games = db.relationship('Game', secondary="cart_table", back_populates='users')
 
 
-
     @property
     def password(self):
         return self.hashed_password

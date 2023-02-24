@@ -6,6 +6,9 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import MainPage from "./components/MainPage";
+import Game from "./components/Games/GameDetail";
+import Cart from "./components/Cart";
+import Library from "./components/Library";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,10 +22,19 @@ function App() {
       <div className="app-container">
         {/* <Navigation isLoaded={isLoaded} />
         {isLoaded && ( */}
+        <Navigation />
         <Switch>
           <Route exact path="/">
-            <Navigation />
             <MainPage />
+          </Route>
+          <Route exact path="/games/:game_id">
+            <Game />
+          </Route>
+          <Route exact path="/cart">
+            <Cart />
+          </Route>
+          <Route exact path="/library">
+            <Library />
           </Route>
           <Route exact path="/login">
             <LoginFormPage />
