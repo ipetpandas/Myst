@@ -24,7 +24,7 @@ def seed_game_screenshots():
 
   apexscrn5 = GameScreenshot(
     game_id=1,
-    screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/ss_e5bc45b4296b02ce652868bae776d108a4db617e.600x338.jpg"
+    screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/ss_e5bc45b4296b02ce652868bae776d108a4db617e.1920x1080.jpg"
   )
 
   cpscrn1 = GameScreenshot(

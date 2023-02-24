@@ -10,11 +10,14 @@ a:visited {
 }
 
 body {
-  background-color: #171a21;
+  height: 100%;
+  background-image: linear-gradient(transparent, rgb(23, 26, 33));
+  background-attachment: fixed;
+  background-color: #050914;
 }
 
 .app-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* width: 100%; */
 }

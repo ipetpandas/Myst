@@ -1,4 +1,5 @@
 .nav-container {
+  top: 0;
   color: white;
   position: absolute;
   width: 100%;
@@ -43,6 +44,7 @@
 }
 
 .individual-links {
+  color: white;
   margin: 0px 15px;
   padding: 10px 25px;
   text-transform: uppercase;

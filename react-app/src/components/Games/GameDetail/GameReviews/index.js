@@ -39,7 +39,7 @@ const GameReviews = ({ game_id }) => {
             <>
               <div className="review-container">
                 <div className="author-avatar">
-                  <img src={review.author_display_pic} alt="" />
+                  {/* <img src={review.author_display_pic} alt="" /> */}
                 </div>
                 <div className="review-author">{review.author_name}</div>
                 <div className="review-text">{review.review}</div>
