@@ -13,21 +13,21 @@ const GameReviews = ({ game_id }) => {
   console.log("REVIEWS --------------------->", Object.values(reviews));
   let [isLoaded, setIsLoaded] = useState(false);
 
-  const [recommended, setRecommended] = useState(reviews[user.id]?.recommended);
-  const [review, setReview] = useState(reviews[user.id]?.review);
+  // const [recommended, setRecommended] = useState(reviews[user.id]?.recommended);
+  // const [review, setReview] = useState(reviews[user.id]?.review);
 
   useEffect(() => {
     dispatch(thunkReadReviewsByGameId(game_id)).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  const onSave = (e) => {
-    e.preventDefault();
-    const reviewToUpdate = {
-      recommended,
-      review,
-    };
-    dispatch(thunkEditReviewByGameId(game_id, user.id, reviewToUpdate));
-  };
+  // const onSave = (e) => {
+  //   e.preventDefault();
+  //   const reviewToUpdate = {
+  //     recommended,
+  //     review,
+  //   };
+  //   dispatch(thunkEditReviewByGameId(game_id, user.id, reviewToUpdate));
+  // };
 
   return (
     <div>
@@ -37,14 +37,14 @@ const GameReviews = ({ game_id }) => {
           console.log("REVIEW", review);
           return (
             <>
-              <div className="review-container" key={review.id}>
+              <div className="review-container">
                 <div className="author-avatar">
                   <img src={review.author_display_pic} alt="" />
                 </div>
                 <div className="review-author">{review.author_name}</div>
                 <div className="review-text">{review.review}</div>
               </div>
-              {review.author_id == user.id && (
+              {/* {review.author_id == user.id && (
                 <>
                   <div>
                     <button>EDIT</button>
@@ -53,7 +53,7 @@ const GameReviews = ({ game_id }) => {
                     <input></input>
                   </form>
                 </>
-              )}
+              )} */}
             </>
           );
         })}
