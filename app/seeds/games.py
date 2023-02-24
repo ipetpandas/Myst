@@ -10,7 +10,7 @@ def seed_games():
     developer="Respawn Entertainment",
     publisher="Electronic Arts",
     price=0,
-    description="Apex Legends is the award-winning, free-to-play Hero Shooter from Respawn Entertainment. Master an ever-growing roster of legendary characters with powerful abilities, and experience strategic squad play and innovative gameplay in the next evolution of Hero Shooter and Battle Royale.",
+    description="Apex Legends is the award-winning, free-to-play Hero Shooter from Respawn Entertainment. Master an ever-growing roster of legendary characters with powerful abilities, and experience strategic squad play and innovative gameplay in the next evolution of..",
     large_featured_banner_url="https://assets-prd.ignimgs.com/2023/02/06/byprmrle-1675656903302.jpeg",
     featured_banner_url="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/clans/38098458/cec54327d06ac2608ad2f192d1a9d4dcf248e2e3_960x311.jpg",
     main_banner_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg"
@@ -36,7 +36,7 @@ def seed_games():
     developer="Square Enix",
     publisher="Square Enix",
     price=69.99,
-    description="Cloud Strife, an ex-SOLDIER operative, descends on the mako-powered city of Midgar. The world of the timeless classic FINAL FANTASY VII is reborn, using cutting-edge graphics technology, a new battle system and an additional adventure featuring Yuffie Kisaragi.",
+    description="Cloud Strife, an ex-SOLDIER operative, descends on the mako-powered city of Midgar. The world of the timeless classic FINAL FANTASY VII is reborn, using cutting-edge graphics technology, a new battle system and an additional adventure featuring Yuffie..",
     large_featured_banner_url="https://images4.alphacoders.com/106/1064722.jpg",
     featured_banner_url="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/clans/42536301/1b75e08c56340cf39a49fdde1de2e53ae5a03ab9_960x311.jpg",
     main_banner_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1462040/header.jpg?t=1663767129"
@@ -49,7 +49,7 @@ def seed_games():
     developer="CAPCOM Co., Ltd.",
     publisher="CAPCOM Co., Ltd.",
     price=59.99,
-    description="Survival is just the beginning. Six years have passed since the biological disaster in Raccoon City. Leon S. Kennedy, one of the survivors, tracks the president's kidnapped daughter to a secluded European village, where there is something terribly wrong with the locals.",
+    description="Survival is just the beginning. Six years have passed since the biological disaster in Raccoon City. Leon S. Kennedy, one of the survivors, tracks the president's kidnapped daughter to a secluded European village, where there is something terribly..",
     large_featured_banner_url="",
     featured_banner_url="",
     main_banner_url="https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/header.jpg?t=1676336907"
@@ -62,7 +62,7 @@ def seed_games():
     developer="CAPCOM Co., Ltd.",
     publisher="CAPCOM Co., Ltd.",
     price=39.99,
-    description="A deadly virus engulfs the residents of Raccoon City in September of 1998, plunging the city into chaos as flesh eating zombies roam the streets for survivors. An unparalleled adrenaline rush, gripping storyline, and unimaginable horrors await you. Witness the return of Resident Evil 2.",
+    description="A deadly virus engulfs the residents of Raccoon City in September of 1998, plunging the city into chaos as flesh eating zombies roam the streets for survivors. An unparalleled adrenaline rush, gripping storyline, and unimaginable horrors await you.",
     large_featured_banner_url="",
     featured_banner_url="",
     main_banner_url="https://cdn.cloudflare.steamstatic.com/steam/apps/883710/header.jpg"
