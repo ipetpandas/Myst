@@ -53,73 +53,83 @@ const Cart = () => {
   };
 
   return (
-    <div className="cart-container">
-      <div className="cart-game-card-container">
-        {isLoaded &&
-          Object.values(cart).map((game) => {
-            return (
-              <div className="cart-game-card">
-                <NavLink exact to={`/games/${game.id}`}>
-                  <div className="cart-game-card-banner">
-                    <img src={game.main_banner_url}></img>
-                  </div>
-                </NavLink>
-                <div className="cart-game-card-info">
-                  <div className="cart-game-card-name-price-ctn">
-                    <div className="cart-game-title">{game.title}</div>
-                    <div className="cart-game-price">
-                      {game.price === 0 ? "FREE TO PLAY" : `$` + game.price}
+    <div className="cart-parent">
+      <div className="cart-container">
+        <div className="cart-game-card-container">
+          <div className="cart-game-card-header">Your Shopping Cart</div>
+          {isLoaded &&
+            Object.values(cart).map((game) => {
+              return (
+                <div className="cart-game-card">
+                  <NavLink exact to={`/games/${game.id}`}>
+                    <div className="cart-game-card-banner">
+                      <img src={game.main_banner_url}></img>
+                    </div>
+                  </NavLink>
+                  <div className="cart-game-card-info">
+                    <div className="cart-game-card-name-price-ctn">
+                      <div className="cart-game-title">{game.title}</div>
+                      <div className="cart-game-price">
+                        {game.price === 0 ? "FREE TO PLAY" : `$` + game.price}
+                      </div>
+                    </div>
+                    <div className="cart-game-delete">
+                      <button
+                        className="cart-delete-btn"
+                        onClick={() => deleteItem(game.id)}
+                      >
+                        <span>
+                          <i className="fa-solid fa-trash fa-sm"></i>
+                        </span>
+                        <span>&nbsp;Remove</span>
+                      </button>
                     </div>
                   </div>
-                  <div className="cart-game-delete">
-                    <button
-                      className="cart-delete-btn"
-                      onClick={() => deleteItem(game.id)}
-                    >
-                      <span>
-                        <i className="fa-solid fa-trash fa-sm"></i>
-                      </span>
-                      <span>&nbsp;Remove</span>
-                    </button>
-                  </div>
+                </div>
+              );
+            })}
+          {!Object.values(cart).length ? (
+            <div>Nothing in cart. Please add a game!</div>
+          ) : (
+            <div className="clear-cart-container">
+              <button className="clear-cart-btn" onClick={clearCart}>
+                Clear All
+              </button>
+            </div>
+          )}
+        </div>
+        <div className="check-out-container">
+          {isLoaded &&
+            Object.values(cart).map((game) => {
+              return (
+                <div className="cart-item">
+                  <div className="cart-game-title2">{game.title}</div>
+                  <div className="cart-game-price2">{"$" + game.price}</div>
+                </div>
+              );
+            })}
+          {isLoaded && Object.values(cart).length ? (
+            <>
+              <div className="cart-tax">
+                <div className="tax">Tax 7%</div>
+                <div className="cart-game-price2">
+                  {`$` + (cartTotal * 0.07).toFixed(2)}
                 </div>
               </div>
-            );
-          })}
-        {!Object.values(cart).length ? (
-          <div>Nothing in cart. Please add a game!</div>
-        ) : (
-          <div className="clear-cart-container">
-            <button className="clear-cart-btn" onClick={clearCart}>
-              Clear All
-            </button>
-          </div>
-        )}
-      </div>
-      <div className="check-out-container">
-        {isLoaded &&
-          Object.values(cart).map((game) => {
-            return (
-              <div className="cart-item">
-                <div>{"$" + game.title}</div>
-                <div>{game.price}</div>
+              <div className="divider"></div>
+              <div className="for-space-between">
+                <div className="cart-total">
+                  {`$` + (cartTotal * 1.07).toFixed(2)}
+                </div>
+                <button className="purchase-button" onClick={completePurchase}>
+                  Complete Purchase
+                </button>
               </div>
-            );
-          })}
-        {isLoaded && (
-          <>
-            <div className="cart-sub-total">{`$` + cartTotal}</div>
-            <div className="cart-tax">
-              {`Tax 7% $` + (cartTotal * 0.07).toFixed(2)}
-            </div>
-            <div className="cart-total">
-              {`$` + (cartTotal * 1.07).toFixed(2)}
-            </div>
-            <button className="purchase-button" onClick={completePurchase}>
-              Complete Purchase
-            </button>
-          </>
-        )}
+            </>
+          ) : (
+            <div>This div will be hidden</div>
+          )}
+        </div>
       </div>
     </div>
   );

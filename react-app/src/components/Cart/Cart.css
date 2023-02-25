@@ -1,4 +1,4 @@
-.cart-container {
+.cart-parent {
   margin-top: 150px;
   display: flex;
   flex-direction: row;
@@ -9,23 +9,48 @@
   /* width: 100%; */
 }
 
+.cart-container {
+  display: flex;
+  height: 100%;
+}
+
 .cart-game-card-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   /* background-color: rgb(255, 255, 255, 0.1); */
   height: 100%;
-  width: 610px;
+  margin-right: 4px;
+}
+
+.cart-game-card-header {
+  width: 600px;
+  max-width: 600px;
+  margin-bottom: 2px;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 38px;
+  font-weight: 1000;
+  text-shadow: 4px 1px 0px rgb(102, 192, 244, 0.4);
+  line-height: 45px;
+  border-bottom: 1px solid rgb(255, 255, 255, 0.4);
+  cursor: default;
+  user-select: none;
+}
+
+.cart-game-card p {
+  text-shadow: 10px 10px 0px 0px rgba(255, 255, 255, 0.75);
 }
 
 .cart-game-card {
-  margin: 5px 0px;
+  margin: 3px 0px;
   height: 100%;
   display: flex;
   flex-direction: row;
   /* align-items: center; */
   /* justify-content: center; */
   width: 600px;
+  max-height: 115px;
 }
 
 .cart-game-card-banner {
@@ -65,20 +90,79 @@
   /* background-color: black; */
   margin-left: -5px;
   color: rgb(159, 161, 163, 0.7);
+  cursor: pointer;
 }
 
 .clear-cart-btn {
+  width: 100%;
+  text-align: center;
   cursor: pointer;
   text-transform: uppercase;
   font-size: 12px;
 }
 
 .check-out-container {
-  margin-left: 5px;
-  margin-top: 5px;
+  margin-top: 45px;
   border: 1px solid rgb(199, 213, 224, 0.2);
-  background-color: rgb(159, 161, 163, 0.2);
+  background: linear-gradient(
+    145deg,
+    transparent 20%,
+    rgba(36, 40, 49, 1) 100%
+  );
   width: 360px;
-  height: 300px;
+  height: 100%;
   padding: 10px;
+}
+
+.cart-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.cart-game-title2 {
+  font-size: 16px;
+}
+
+.cart-game-price2 {
+  font-size: 14px;
+}
+
+.cart-tax {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tax {
+  font-size: 14px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid rgb(255, 255, 255, 0.2);
+}
+
+.for-space-between {
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cart-total {
+  text-align: right;
+  font-size: 24px;
+}
+
+.purchase-button {
+  background-color: rgb(214, 214, 214);
+  padding: 10px;
+  color: black;
+  cursor: pointer;
 }

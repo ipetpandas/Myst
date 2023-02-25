@@ -12,12 +12,13 @@ a:visited {
 body {
   height: 100%;
   background-image: linear-gradient(transparent, rgb(23, 26, 33));
-  background-attachment: fixed;
+  /* background-image: linear-gradient(transparent, rgb(31, 35, 44)); */
   background-color: #050914;
+  background-attachment: fixed;
 }
 
 .app-container {
-  /* display: flex; */
-  /* flex-direction: column; */
+  display: flex;
+  flex-direction: column;
   /* width: 100%; */
 }

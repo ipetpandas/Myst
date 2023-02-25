@@ -12,6 +12,7 @@ const Game = () => {
   let [isLoaded, setIsLoaded] = useState(false);
   let [isLibraryLoaded, setIsLibraryLoaded] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
   const history = useHistory();
   const { game_id } = useParams();
   const singleGame = useSelector((state) => state.games.singleGame);
@@ -41,6 +42,34 @@ const Game = () => {
       history.push(`/cart`);
     }
   };
+
+  const prettifyDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-us", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      timeZone: "utc",
+    });
+  };
+
+  // PURCHASE BUTTON HOVER
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  // 0 TO FREE TO PLAY
+  function formatPrice(price) {
+    if (price === 0) {
+      return "FREE TO PLAY";
+    } else {
+      return `$${price}`;
+    }
+  }
 
   return (
     <>
@@ -74,7 +103,7 @@ const Game = () => {
                             onClick={() => handleTabClick(index)}
                             src={screenshot.screenshot_url}
                             className={`tab ${
-                              activeTab === index ? "active-game-detail" : ""
+                              activeTab === index ? "active-game-detail-2" : ""
                             }`}
                           ></img>
                         </div>
@@ -98,15 +127,59 @@ const Game = () => {
                   ></img>
                 </div>
                 <div className="game-detail-text-container">
-                  <div className="game-detail-title">{singleGame.title}</div>
-                  <div className="game-detail-description">
-                    {singleGame.description}
+                  <div className="game-detail-title-des">
+                    <div className="game-detail-title-wrapper">
+                      <div className="game-detail-title">
+                        {singleGame.title}
+                      </div>
+                      <div className="game-detail-price">
+                        {isLoaded & (singleGame.price === 0)
+                          ? "FREE TO PLAY"
+                          : `$` + singleGame.price}
+                      </div>
+                    </div>
+                    <div className="game-detail-description">
+                      {singleGame.description}
+                    </div>
                   </div>
-                  <div className="game-detail-price">
-                    {isLoaded & (singleGame.price === 0)
-                      ? "FREE TO PLAY"
-                      : `$` + singleGame.price}
+                  <div className="game-detail-info-mid-container">
+                    <div className="game-detail-mid-info">
+                      <div className="game-detail-key">All Reviews:&nbsp;</div>
+                      <div className="game-detail-value">
+                        {singleGame.reviews.length}
+                      </div>
+                    </div>
                   </div>
+                  <div className="game-detail-mid-info">
+                    <div className="game-detail-key">Release Date:&nbsp;</div>
+                    <div className="game-detail-value2">
+                      {prettifyDate(singleGame.release_date)}
+                    </div>
+                  </div>
+                  <div className="game-detail-info-mid-container">
+                    <div className="game-detail-mid-info">
+                      <div className="game-detail-key">Developer:&nbsp;</div>
+                      <div className="game-detail-value3">
+                        {singleGame.developer}
+                      </div>
+                    </div>
+                    <div className="game-detail-mid-info">
+                      <div className="game-detail-key">Publisher:&nbsp;</div>
+                      <div className="game-detail-value4">
+                        {singleGame.publisher}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="game-detail-categories-container">
+                    {singleGame.categories?.map((category) => {
+                      return (
+                        <div className="game-detail-category">
+                          {category.name}&nbsp;
+                        </div>
+                      );
+                    })}
+                  </div>
+
                   <div className="add-to-cart-container">
                     {isLibraryLoaded && !user ? (
                       <NavLink to="/login">
@@ -118,8 +191,15 @@ const Game = () => {
                       <div className="already-purchased">In Library</div>
                     ) : (
                       isLibraryLoaded && (
-                        <button onClick={addToCart} className="add-to-cart-btn">
-                          Add To Cart
+                        <button
+                          onMouseEnter={handleMouseEnter}
+                          onMouseLeave={handleMouseLeave}
+                          onClick={addToCart}
+                          className="add-to-cart-btn"
+                        >
+                          {isHovered
+                            ? formatPrice(singleGame.price)
+                            : "Add To Cart"}
                         </button>
                       )
                     )}
