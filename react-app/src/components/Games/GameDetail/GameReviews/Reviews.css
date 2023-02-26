@@ -1,0 +1,228 @@
+.review-parent {
+  color: white;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: center;
+  /* border: 1px solid white; */
+}
+
+.review-container-left-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1350px;
+  /* border: 1px solid red; */
+}
+
+.review-container {
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+  width: 868px;
+  margin-right: 10px;
+  gap: 5px;
+}
+
+.review-header {
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 1000;
+  /* text-shadow: 4px 1px 0px rgb(102, 192, 244, 0.4); */
+  line-height: 35px;
+  /* border-bottom: 1px solid rgb(68, 89, 121, 0.5); */
+  cursor: default;
+  user-select: none;
+}
+
+.individual-review-container {
+  display: flex;
+  flex-direction: row;
+  /* width: 865px; */
+  margin-left: 1px;
+  margin-bottom: 20px;
+  /* padding: 3px; */
+  /* border: 1px solid rgb(68, 89, 121, 0.5); */
+  /* border-top: 1px solid rgb(68, 89, 121, 0.5); */
+  /* background-color: rgba(26, 38, 51, 0.6); */
+  background-color: linear-gradient(
+    0deg,
+    transparent 0%,
+    rgba(36, 40, 49, 1) 100%
+  );
+}
+
+.author-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  padding: 0px 5px 3px 3px;
+  /* border-right: 1px solid rgb(68, 89, 121, 0.5); */
+  /* width: 100%; */
+}
+
+.author-avatar img {
+  user-select: none;
+  height: 68px;
+  width: 78px;
+  object-fit: cover;
+  /* outline: 1px solid rgb(68, 89, 121, 0.5); */
+  border: 1px solid #445979;
+  /* border-image: linear-gradient(to top, #445979, transparent) 1; */
+}
+
+.review-text-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* margin-left: 5px; */
+  /* padding: 3px; */
+  /* padding-bottom: 20px; */
+  /* background-color: rgb(27, 40, 56, 0.8); */
+  /* border: 1px solid white; */
+}
+
+.review-text-top-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* padding: 3px; */
+  /* border: 1px solid rgb(68, 89, 121, 0.5); */
+}
+
+.review-top-info-container {
+  padding: 5px 4px 5px 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: linear-gradient(
+    -145deg,
+    transparent 20%,
+    rgba(122, 195, 238, 0.1) 100%
+  );
+  border-top: 1px solid rgb(68, 89, 121, 0.5);
+  border-bottom: 1px solid rgb(68, 89, 121, 0.5);
+  font-size: 12px;
+}
+
+.review-posted {
+  color: rgb(150, 150, 150);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.recommended-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: linear-gradient(
+    145deg,
+    transparent 0%,
+    rgba(9, 11, 15, 0.5) 100%
+  );
+  border-bottom: 1px solid rgb(68, 89, 121, 0.5);
+}
+
+.recommended,
+.not-recommended {
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.thumbs-up,
+.thumbs-down {
+  font-size: 24px;
+  padding: 2px 8px;
+  /* border: 1px solid pink; */
+  margin-right: 10px;
+}
+
+.thumbs-up {
+  background: linear-gradient(
+    0deg,
+    rgb(12, 53, 80, 0.3) 0%,
+    rgb(63, 103, 129, 0.6) 100%
+  );
+}
+
+.thumbs-down {
+  background: linear-gradient(0deg, rgb(77, 22, 28) 0%, rgb(119, 72, 78) 100%);
+}
+
+.thumb-icon {
+  opacity: 0.6;
+  text-shadow: 2px 3px 0px rgba(0, 0, 0, 0.6);
+}
+
+.key-icon {
+  margin-right: 10px;
+}
+
+.review-text {
+  text-align: justify;
+  font-size: 12px;
+  padding: 5px 0px;
+}
+
+.review-user-actions {
+  /* border-top: 1px solid rgb(255, 255, 255, 0.2); */
+  /* background-color: black; */
+  /* border-top: 1px solid;
+  border-image: linear-gradient(to right, transparent, rgb(255, 255, 255, 0.1))
+    1; */
+  font-size: 11px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.edit-review,
+.delete-review {
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: 0.4s;
+}
+
+.edit-review {
+  background-color: rgb(255, 255, 255, 0.4);
+}
+
+.edit-review:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+.delete-review {
+  background-color: rgb(255, 0, 0, 0.4);
+  margin-left: 5px;
+}
+
+.delete-review:hover {
+  background-color: rgb(255, 0, 0);
+}
+
+.edit-review,
+.delete-review {
+  cursor: pointer;
+}
+
+.review-right-container {
+  position: sticky;
+  position: -webkit-sticky; /* for browser compatibility */
+  top: 35%;
+  width: 465px;
+  height: 300px;
+  margin-top: 35px;
+  border: 1px solid rgb(68, 89, 121, 0.5);
+  background: linear-gradient(-45deg, transparent 0%, rgba(36, 40, 49, 1) 100%);
+}

@@ -43,7 +43,7 @@ const Game = () => {
     }
   };
 
-  const prettifyDate = (dateString) => {
+  const dateConverter = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("en-us", {
       year: "numeric",
@@ -153,7 +153,7 @@ const Game = () => {
                   <div className="game-detail-mid-info">
                     <div className="game-detail-key">Release Date:&nbsp;</div>
                     <div className="game-detail-value2">
-                      {prettifyDate(singleGame.release_date)}
+                      {dateConverter(singleGame.release_date)}
                     </div>
                   </div>
                   <div className="game-detail-info-mid-container">
@@ -188,7 +188,7 @@ const Game = () => {
                         </div>
                       </NavLink>
                     ) : isLibraryLoaded && library[game_id] && user ? (
-                      <div className="already-purchased">In Library</div>
+                      <div className="login-to-purchase">In Library</div>
                     ) : (
                       isLibraryLoaded && (
                         <button

@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #212327;
+  /* background-color: #212327; */
   width: 100%;
   height: 100vh;
 }
@@ -13,9 +13,10 @@
   flex-direction: row;
   align-items: center;
   /* justify-content: center; */
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   height: 50%;
   width: 40%;
+  border: 1px solid white;
 }
 
 .left-banner {

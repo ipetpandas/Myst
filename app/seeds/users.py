@@ -21,7 +21,7 @@ def seed_users():
         username='alexle',
         email='alex-le@aa.io',
         password='password',
-        display_pic="https://cdn.myanimelist.net/images/characters/11/483437.jpg"
+        display_pic="https://static1.personality-database.com/profile_images/119ae7afdb3f4cdc8d24ac62cf2d3ea7.png"
     )
 
     John = User(
@@ -45,6 +45,34 @@ def seed_users():
         display_pic="https://steamavatar.io/img/1477741506Tccln.jpg"
     )
 
+    Ellie = User(
+        username='egirlgamer',
+        email='ellieriot@gmail.com',
+        password='elle',
+        display_pic="https://avatarfiles.alphacoders.com/206/thumb-206742.jpg"
+    )
+
+    Michael = User(
+        username='elfkid91',
+        email='elfkid91@gmail.com',
+        password='ihateapexlegends',
+        display_pic='https://tr.rbxcdn.com/e7711dbdf4b5d310d8cdca400d0d7c13/500/280/Image/Jpeg'
+    )
+
+    Kenny = User(
+        username='gas_station_corn_dog',
+        email='ilovecorndogs@gmail.com',
+        password='corndog',
+        display_pic='https://i.pinimg.com/564x/1c/29/36/1c29368aa64f57aab8929be127dd2b9d.jpg'
+    )
+
+    Aaron = User(
+        username='Anonymous',
+        email='chocolaterain@gmail.com',
+        password='chocolate',
+        display_pic='https://i.pinimg.com/736x/5d/ed/2b/5ded2bcfcd73ea6c6f66975029e8960e.jpg'
+    )
+
     db.session.add_all(
         [
             demo,
@@ -52,7 +80,11 @@ def seed_users():
             Alex,
             John,
             Jane,
-            Austin
+            Austin,
+            Ellie,
+            Michael,
+            Kenny,
+            Aaron
         ]
     )
     db.session.commit()

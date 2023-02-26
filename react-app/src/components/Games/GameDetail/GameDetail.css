@@ -4,7 +4,6 @@
   /* flex-direction: row; */
   /* align-items: center; */
   justify-content: center;
-  height: 500%;
 }
 
 .game-detail-container {
@@ -171,6 +170,12 @@ img.active-game-detail-2 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.login-to-purchase {
+  font-size: 12px;
+  color: rgb(201, 201, 201);
+  text-transform: uppercase;
 }
 
 .add-to-cart-btn {
