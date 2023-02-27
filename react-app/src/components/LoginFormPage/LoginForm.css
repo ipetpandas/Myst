@@ -14,8 +14,8 @@
   align-items: center;
   /* justify-content: center; */
   background-color: rgb(255, 255, 255);
-  height: 50%;
-  width: 40%;
+  height: 600px;
+  width: 1000px;
   border: 1px solid white;
 }
 
@@ -71,8 +71,9 @@
 }
 
 .input-container input {
+  width: 96.5%;
   font-weight: normal;
-  width: 250px;
+  /* width: 250px; */
   padding: 5px;
   margin-bottom: 10px;
   color: rgba(84, 103, 117, 1);

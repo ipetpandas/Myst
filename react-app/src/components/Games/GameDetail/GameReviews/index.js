@@ -208,7 +208,10 @@ const GameReviews = ({ game_id }) => {
                           checked={recommended === "Recommended"}
                           required
                         />
-                        <label htmlFor="recommended-yes">Yes</label>
+                        <label htmlFor="recommended-yes">
+                          <i className="fa-solid fa-thumbs-up"></i>
+                          &nbsp;Yes
+                        </label>
                         <input
                           type="radio"
                           id="recommended-no"
@@ -218,7 +221,10 @@ const GameReviews = ({ game_id }) => {
                           checked={recommended === "Not Recommended"}
                           required
                         />
-                        <label htmlFor="recommended-no">No</label>
+                        <label htmlFor="recommended-no">
+                          <i className="fa-solid fa-thumbs-down"></i>
+                          &nbsp;No
+                        </label>
                       </div>
                       <div className="post-review-container">
                         <button type="submit">Post review</button>
@@ -229,9 +235,13 @@ const GameReviews = ({ game_id }) => {
               </form>
             </div>
           ) : isLoaded && user && !library[game_id] ? (
-            <div>Buy this game to leave a review</div>
+            <div className="purchase-me-container arrow-top">
+              <div>Purchase this game to leave a review</div>
+            </div>
           ) : user && reviews[user.id] ? (
-            <div>Already left review</div>
+            <div className="purchase-me-container arrow-left">
+              <div>You've already left a review</div>
+            </div>
           ) : (
             <div></div>
           )}
@@ -277,12 +287,12 @@ const GameReviews = ({ game_id }) => {
 
   function editForm() {
     return (
-      <form className="review-create-input-container" onSubmit={onSave}>
+      <form className="review-edit-input-container" onSubmit={onSave}>
         {/* <div className="review-create-user-avatar">
                   <img src={user.display_pic}></img>
                 </div> */}
 
-        <div className="review-create-input">
+        <div className="review-edit-input">
           <textarea
             type="text"
             value={review}
@@ -291,7 +301,7 @@ const GameReviews = ({ game_id }) => {
           ></textarea>
         </div>
         <div className="review-create-radio">
-          <fieldset className="do-you-rec">
+          <fieldset className="do-you-rec-edit">
             <div className="do-you-rec-1">Do you recommend this game?</div>
             <div className="do-you-rec-2">
               <div className="do-you-rec-radio-container">
@@ -318,22 +328,20 @@ const GameReviews = ({ game_id }) => {
               </div>
             </div>
           </fieldset>
-          <div className="review-user-actions">
-            <button
-              className="edit-review"
-              onClick={() => setShowEditForm(false)}
-            >
-              Cancel&nbsp;
-              <i className="fa-solid fa-pen-to-square"></i>
-            </button>
-            <button
-              className="cancel-edit-form"
-              type="submit"
-              onSubmit={onSave}
-            >
-              Save&nbsp;
-              <i className="fa-solid fa-trash"></i>
-            </button>
+          <div className="review-user-actions-edit">
+            <div className="review-edit-btns-container">
+              <button
+                className="cancel-review"
+                onClick={() => setShowEditForm(false)}
+              >
+                Cancel&nbsp;
+                <i className="fa-solid fa-pen-to-square"></i>
+              </button>
+              <button className="save-review" type="submit" onSubmit={onSave}>
+                Save&nbsp;
+                <i className="fa-solid fa-trash"></i>
+              </button>
+            </div>
           </div>
         </div>
       </form>

@@ -127,7 +127,7 @@ const Cart = () => {
               </div>
             </>
           ) : (
-            <div>This div will be hidden</div>
+            <div>Cart is empty! Please Add a game!</div>
           )}
         </div>
       </div>

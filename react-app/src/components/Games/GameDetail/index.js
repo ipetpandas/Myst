@@ -43,16 +43,6 @@ const Game = () => {
     }
   };
 
-  const dateConverter = (dateString) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-us", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-      timeZone: "utc",
-    });
-  };
-
   // PURCHASE BUTTON HOVER
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -226,6 +216,16 @@ const Game = () => {
       )}
     </>
   );
+};
+
+const dateConverter = (dateString) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-us", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    timeZone: "utc",
+  });
 };
 
 export default Game;

@@ -46,7 +46,7 @@ function LoginFormPage() {
         </div>
         <div className="login-form-container">
           <div className="input-main-header">Welcome back to Myst</div>
-          <form onSubmit={handleSubmit}>
+          <form className="form-container" onSubmit={handleSubmit}>
             <ul>
               {errors.map((error, idx) => (
                 <li key={idx}>{error}</li>

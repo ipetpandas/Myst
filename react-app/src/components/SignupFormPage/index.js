@@ -10,7 +10,7 @@ function SignupFormPage() {
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
-  const [display_pic, setDisplay_pic] = useState("");
+  const [display_pic, setDisplay_pic] = useState(null);
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -19,6 +19,36 @@ function SignupFormPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrors({});
+    const submitErrors = {};
+
+    if (!email.includes("@")) {
+      submitErrors.emailAt = "Please enter a valid email";
+    }
+
+    if (!email.includes(".")) {
+      submitErrors.emailDot = "Please enter a valid email";
+    }
+
+    if (username.length < 4 || username.length > 50) {
+      submitErrors.usernameLength =
+        "Please enter a username between 4 and 50 characters";
+    }
+
+    if (password.length < 6 || password.length > 50) {
+      submitErrors.passwordLength =
+        "Please enter a password between 6 and 50 characters";
+    }
+
+    if (password !== confirmPassword) {
+      submitErrors.password =
+        "Confirm Password field must be the same as the Password field";
+    }
+
+    if (Object.keys(submitErrors).length > 0) {
+      return setErrors(submitErrors);
+    }
+
     if (password === confirmPassword) {
       const data = await dispatch(
         signUp(username, email, display_pic, password)
@@ -46,12 +76,12 @@ function SignupFormPage() {
         </div>
         <div className="login-form-container">
           <div className="input-main-header">Sign Up</div>
-          <form onSubmit={handleSubmit}>
-            <ul>
+          <form className="form-container" onSubmit={handleSubmit}>
+            {/* <ul>
               {errors.map((error, idx) => (
                 <li key={idx}>{error}</li>
               ))}
-            </ul>
+            </ul> */}
             <div className="input-container">
               <label>
                 <div className="input-label">Email Address</div>
@@ -62,6 +92,14 @@ function SignupFormPage() {
                   required
                 />
               </label>
+              <div className="form-error-container">
+                {errors && errors.email && (
+                  <p className="Form-error">{errors.email}</p>
+                )}
+                {errors && errors.emailAt && (
+                  <p className="Form-error">{errors.emailAt}</p>
+                )}
+              </div>
             </div>
             <div className="input-container">
               <label>
@@ -73,6 +111,14 @@ function SignupFormPage() {
                   required
                 />
               </label>
+              <div className="form-error-container">
+                {errors && errors.username && (
+                  <p className="form-error">{errors.username}</p>
+                )}
+                {errors && errors.usernameLength && (
+                  <p className="form-error">{errors.usernameLength}</p>
+                )}
+              </div>
             </div>
             <div className="input-container">
               <label>
@@ -106,6 +152,14 @@ function SignupFormPage() {
                   required
                 />
               </label>
+              <div className="form-error-container">
+                {errors && errors.password && (
+                  <p className="form-error">{errors.password}</p>
+                )}
+                {errors && errors.passwordLength && (
+                  <p className="form-error">{errors.passwordLength}</p>
+                )}
+              </div>
             </div>
             <div className="login-button-container">
               <button type="submit">Sign Up</button>

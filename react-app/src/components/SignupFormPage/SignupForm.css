@@ -1,0 +1,17 @@
+.form-error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: red;
+  /* width: 260px; */
+}
+
+.form-error {
+  /* text-transform: none; */
+  font-size: 12px;
+}
+
+.form-container {
+  width: 460px;
+}

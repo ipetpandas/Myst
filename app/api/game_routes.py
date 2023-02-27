@@ -79,12 +79,8 @@ def update_review(game_id):
   if not existing_review:
       return {"errors": ["Could not complete request"]}
   if form.validate_on_submit():
-    print("Review BEFORE", existing_review.to_dict())
     existing_review.recommended = form.data["recommended"]
-    print("Review form", form.data)
-    print("Review AFTER", existing_review.to_dict())
     existing_review.review = form.data["review"]
-    print("Review AFTER", existing_review)
     db.session.commit()
     return {"review": existing_review.to_dict()}, 201
   return {"errors": ["Could not complete request"]}

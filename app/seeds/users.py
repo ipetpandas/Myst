@@ -21,7 +21,7 @@ def seed_users():
         username='alexle',
         email='alex-le@aa.io',
         password='password',
-        display_pic="https://static1.personality-database.com/profile_images/119ae7afdb3f4cdc8d24ac62cf2d3ea7.png"
+        display_pic="https://media.tenor.com/ArV6RGIhAGkAAAAC/edgerunners-cyberpunk.gif"
     )
 
     John = User(
@@ -49,7 +49,7 @@ def seed_users():
         username='egirlgamer',
         email='ellieriot@gmail.com',
         password='elle',
-        display_pic="https://avatarfiles.alphacoders.com/206/thumb-206742.jpg"
+        display_pic="https://gif-avatars.com/img/90x90/get-it-girl.gif"
     )
 
     Michael = User(
@@ -63,7 +63,7 @@ def seed_users():
         username='gas_station_corn_dog',
         email='ilovecorndogs@gmail.com',
         password='corndog',
-        display_pic='https://i.pinimg.com/564x/1c/29/36/1c29368aa64f57aab8929be127dd2b9d.jpg'
+        display_pic='https://media.tenor.com/MKNUrhy6b_EAAAAi/usamaru-cute.gif'
     )
 
     Aaron = User(

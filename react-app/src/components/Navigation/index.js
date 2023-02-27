@@ -18,7 +18,7 @@ function Navigation({ isLoaded }) {
     e.preventDefault();
 
     dispatch(logout());
-    history.push("/");
+    // history.push("/");
   };
 
   return (
