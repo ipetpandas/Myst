@@ -3,5 +3,5 @@ from wtforms import StringField, BooleanField
 from wtforms.validators import DataRequired
 
 class ReviewForm(FlaskForm):
-    recommended = BooleanField("Recommended", validators=[DataRequired()])
+    recommended = BooleanField("Recommended")
     review = StringField("StringField", validators=[DataRequired()])

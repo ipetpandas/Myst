@@ -241,16 +241,28 @@
 }
 
 .review-create-top-container {
-  /* padding: 10px 10px 0px 10px; */
+  margin: 10px 0px;
   padding: 10px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
 }
 
+.review-create-user-avatar {
+  margin-right: 5px;
+}
+
+.review-create-user-avatar img {
+  border: 1px solid #445979;
+  height: 60px;
+  width: 70px;
+  object-fit: cover;
+}
+
 .review-create-subtext-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .review-create-subtext {
@@ -266,27 +278,28 @@
 
 .review-create-input-container {
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding: 10px;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }
 
-.review-create-user-avatar {
-  /* margin-right: 5px; */
+.review-create-input {
+  /* border: 1px solid red; */
+  padding: 10px 16px 10px 10px;
+  display: flex;
+  flex-direction: column;
 }
-
-.review-create-user-avatar img {
-  border: 1px solid #445979;
-  height: 60px;
-  width: 85px;
-  object-fit: cover;
-}
-
 .review-create-input > textarea {
   color: white;
-  padding: 5px;
   font-size: 14px;
   resize: none;
   background-color: transparent;
+  height: 150px;
   width: 100%;
+}
+
+.do-you-rec-2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

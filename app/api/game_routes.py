@@ -74,11 +74,17 @@ def update_review(game_id):
   form = ReviewForm()
   form["csrf_token"].data = request.cookies["csrf_token"]
   existing_review = Review.query.filter(Review.author_id == current_user.id, Review.game_id == game_id).first()
+  print("Review existing", existing_review.to_dict())
+  print("Review valid", form.validate_on_submit())
   if not existing_review:
       return {"errors": ["Could not complete request"]}
   if form.validate_on_submit():
+    print("Review BEFORE", existing_review.to_dict())
     existing_review.recommended = form.data["recommended"]
+    print("Review form", form.data)
+    print("Review AFTER", existing_review.to_dict())
     existing_review.review = form.data["review"]
+    print("Review AFTER", existing_review)
     db.session.commit()
     return {"review": existing_review.to_dict()}, 201
   return {"errors": ["Could not complete request"]}

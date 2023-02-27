@@ -3,6 +3,7 @@ const EDIT_REVIEW_BY_GAME_ID = `reviews/EDIT_REVIEW_BY_GAME_ID`;
 const EDIT_REVIEW_BY_REVIEW_ID = `reviews/EDIT_REVIEW_BY_REVIEW_ID`;
 const DELETE_REVIEW_BY_GAME_ID = `reviews/DELETE_REVIEW_BY_GAME_ID`;
 const DELETE_REVIEW_BY_REVIEW_ID = `reviews/DELETE_REVIEW_BY_REVIEW_ID`;
+const CREATE_REVIEW = `reviews/CREATE_REVIEW`;
 
 //-------------------------------------------------------
 
@@ -40,6 +41,12 @@ const actionDeleteReviewByReviewId = (response) => ({
   author_id: response.author_id,
 });
 
+// CREATE REVIEW
+const actionCreateReview = (review) => ({
+  type: CREATE_REVIEW,
+  review: review.review,
+});
+
 // Thunks
 
 // GET: Get all reviews by game id
@@ -63,8 +70,9 @@ export const thunkReadReviewsByGameId = (game_id) => async (dispatch) => {
 
 // EDIT
 export const thunkEditReviewByGameId =
-  (game_id, user_id, review) => async (dispatch) => {
-    let res = await fetch(`/api/games/${game_id}/reviews`, {
+  (game_id, review) => async (dispatch) => {
+    console.log("THUNK EDIT REC? ", review.recommended);
+    let res = await fetch(`/api/games/${game_id}/reviews/`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(review),
@@ -72,7 +80,7 @@ export const thunkEditReviewByGameId =
 
     if (res.ok) {
       const updatedReview = await res.json();
-      dispatch(actionEditReviewByGameId(review));
+      dispatch(actionEditReviewByGameId(updatedReview));
       return updatedReview;
     } else if (res.status < 500) {
       const data = await res.json();
@@ -87,7 +95,7 @@ export const thunkEditReviewByGameId =
 
 // DELETE
 export const thunkDeleteReviewByGameId = (game_id) => async (dispatch) => {
-  let res = await fetch(`/api/games/${game_id}/reviews`, {
+  let res = await fetch(`/api/games/${game_id}/reviews/`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
   });
@@ -128,6 +136,27 @@ export const thunkDeleteReviewByReviewId = (review_id) => async (dispatch) => {
   }
 };
 
+export const thunkCreateReview = (review, game_id) => async (dispatch) => {
+  const response = await fetch(`/api/games/${game_id}/reviews/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(review),
+  });
+
+  if (response.ok) {
+    const newReview = await response.json();
+    dispatch(actionCreateReview(newReview));
+    return newReview;
+  } else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ["An error occurred. Please try again."];
+  }
+};
+
 // Reducer
 
 let initialState = { gameReviews: {}, userReviews: {} };
@@ -151,6 +180,10 @@ const reviewsReducer = (state = initialState, action) => {
     case DELETE_REVIEW_BY_REVIEW_ID:
       newState = { ...state };
       delete newState.gameReviews[action.author_id];
+      return newState;
+    case CREATE_REVIEW:
+      newState = { ...state };
+      newState.gameReviews[action.review.author_id] = action.review;
       return newState;
     default:
       return state;
