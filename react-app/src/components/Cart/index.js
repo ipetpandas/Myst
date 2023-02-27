@@ -93,7 +93,7 @@ const Cart = () => {
           ) : (
             <div className="clear-cart-container">
               <button className="clear-cart-btn" onClick={clearCart}>
-                Clear All
+                Remove all items
               </button>
             </div>
           )}

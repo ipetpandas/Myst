@@ -179,29 +179,42 @@ const Game = () => {
                       );
                     })}
                   </div>
-
-                  <div className="add-to-cart-container">
-                    {isLibraryLoaded && !user ? (
-                      <NavLink to="/login">
-                        <div className="login-to-purchase">
-                          Login to Purchase
-                        </div>
-                      </NavLink>
-                    ) : isLibraryLoaded && library[game_id] && user ? (
-                      <div className="login-to-purchase">In Library</div>
-                    ) : (
-                      isLibraryLoaded && (
-                        <button
-                          onMouseEnter={handleMouseEnter}
-                          onMouseLeave={handleMouseLeave}
-                          onClick={addToCart}
-                          className="add-to-cart-btn"
-                        >
-                          {isHovered
-                            ? formatPrice(singleGame.price)
-                            : "Add To Cart"}
+                  <div className="btn-container">
+                    <div className="add-to-cart-container">
+                      {isLibraryLoaded && !user ? (
+                        <NavLink to="/login">
+                          <div className="login-to-purchase">
+                            Login to Purchase
+                          </div>
+                        </NavLink>
+                      ) : isLibraryLoaded && library[game_id] && user ? (
+                        <NavLink to="/library">
+                          <div className="login-to-purchase">In Library</div>
+                        </NavLink>
+                      ) : (
+                        isLibraryLoaded && (
+                          <button
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                            onClick={addToCart}
+                            className="add-to-cart-btn"
+                          >
+                            {isHovered
+                              ? formatPrice(singleGame.price)
+                              : "Add To Cart"}
+                          </button>
+                        )
+                      )}
+                    </div>
+                    {user && isLibraryLoaded && !library[game_id] ? (
+                      <div className="wishlist-container">
+                        <button className="wishlist-btn">
+                          <i className="fa-regular fa-heart"></i>
+                          &nbsp;Add To Wishlist
                         </button>
-                      )
+                      </div>
+                    ) : (
+                      <div></div>
                     )}
                   </div>
                 </div>

@@ -11,6 +11,7 @@ const GameReviews = ({ game_id }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const reviews = useSelector((state) => state.reviews.gameReviews);
+  const singleGame = useSelector((state) => state.games.singleGame);
   console.log("REVIEWS --------------------->", Object.values(reviews));
   let [isLoaded, setIsLoaded] = useState(false);
 
@@ -74,7 +75,6 @@ const GameReviews = ({ game_id }) => {
             <div className="review-header">Customer Reviews</div>
             {isLoaded &&
               Object.values(reviews).map((review) => {
-                console.log("REVIEW", review);
                 return (
                   <>
                     <div className="individual-review-container">
@@ -129,7 +129,37 @@ const GameReviews = ({ game_id }) => {
                 );
               })}
           </div>
-          <div className="review-right-container">Leave a review</div>
+          {isLoaded && user ? (
+            <div className="review-right-container">
+              <div className="review-create-header">
+                {singleGame.title} is already in your Myst library
+              </div>
+              <div className="review-create-top-container">
+                <div className="review-create-user-avatar">
+                  <img src={user.display_pic}></img>
+                </div>
+                <div className="review-create-subtext-container">
+                  <div className="review-create-subtext">
+                    Write a review for {singleGame.title}
+                  </div>
+                  <div className="review-create-subtext2">
+                    Please describe what you liked or disliked about this game
+                    and whether you recommend it to others.
+                  </div>
+                </div>
+              </div>
+              <div className="review-create-input-container">
+                {/* <div className="review-create-user-avatar">
+                  <img src={user.display_pic}></img>
+                </div> */}
+                <div className="review-create-input">
+                  <textarea rows="10" cols="43"></textarea>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
     </div>

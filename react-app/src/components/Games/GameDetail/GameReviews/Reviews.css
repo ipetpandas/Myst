@@ -9,6 +9,7 @@
 }
 
 .review-container-left-right {
+  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -217,12 +218,75 @@
 }
 
 .review-right-container {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: center; */
   position: sticky;
   position: -webkit-sticky; /* for browser compatibility */
   top: 35%;
   width: 465px;
-  height: 300px;
+  /* height: 300px; */
+  height: 100%;
   margin-top: 35px;
   border: 1px solid rgb(68, 89, 121, 0.5);
   background: linear-gradient(-45deg, transparent 0%, rgba(36, 40, 49, 1) 100%);
+  text-align: justify;
+}
+
+.review-create-header {
+  color: red;
+  padding: 10px;
+  background-color: white;
+}
+
+.review-create-top-container {
+  /* padding: 10px 10px 0px 10px; */
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.review-create-subtext-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-create-subtext {
+  /* padding: 10px 10px 0px 10px; */
+  color: rgb(102, 192, 244);
+  font-size: 14px;
+}
+
+.review-create-subtext2 {
+  /* padding: 10px; */
+  font-size: 12px;
+}
+
+.review-create-input-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 10px;
+}
+
+.review-create-user-avatar {
+  /* margin-right: 5px; */
+}
+
+.review-create-user-avatar img {
+  border: 1px solid #445979;
+  height: 60px;
+  width: 85px;
+  object-fit: cover;
+}
+
+.review-create-input > textarea {
+  color: white;
+  padding: 5px;
+  font-size: 14px;
+  resize: none;
+  background-color: transparent;
+  width: 100%;
 }
