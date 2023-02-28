@@ -1,26 +1,46 @@
+.entire-library-parent {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 .entire-library-container {
   display: flex;
   flex-direction: row;
   color: white;
+  height: 100%;
 }
 .library-sidebar-parent {
-  margin-top: 97px;
-  height: 100vh;
+  margin-top: 98px;
+  /* height: 100%; */
   width: 320px;
-  border-right: 1px solid red;
-  /* background-color: rgb(255, 255, 255, 0.2); */
+  border-right: 1px solid rgb(255, 255, 255, 0.4);
+  background-color: rgb(255, 255, 255, 0.05);
 }
 
 .library-sidebar-container {
   margin-top: 10px;
-  font-size: 12px;
   display: flex;
   flex-direction: column;
   gap: 1px;
 }
-.library-game-list-container {
+
+.my-games-header {
+  font-size: 14px;
   padding: 5px;
-  background-color: rgb(255, 255, 255, 0.1);
+  text-transform: uppercase;
+}
+
+.library-game-list-container {
+  font-size: 12px;
+  cursor: pointer;
+  padding: 5px 5px 5px 20px;
+  /* background-color: rgb(255, 255, 255, 0.1); */
+  transition: 0.4s;
+}
+
+.library-game-list-container:hover {
+  background-color: rgb(255, 255, 255, 0.2);
 }
 
 .library-parent {
@@ -37,11 +57,9 @@
 }
 
 .library-container {
+  height: 100%;
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
-  /* justify-content: center; */
-  color: white;
   gap: 8px;
   align-content: flex-start;
   flex-wrap: wrap;
@@ -50,11 +68,11 @@
 
 .library-game-container {
   padding: 5px;
-  border: 1px solid red;
+  border: 1px solid rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   width: 380px;
-  height: 235px;
+  /* height: 265px; */
   /* margin: 5px; */
 }
 
@@ -63,16 +81,31 @@
 }
 
 .library-info-container {
-  margin-left: 5px;
+  /* margin: 5px; */
   display: flex;
   flex-direction: column;
-  /* height: 100%; */
+  width: 100%;
+  height: 100%;
+}
+
+.library-game-title-container {
+  /* padding: 5px; */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
   justify-content: space-between;
+  margin-bottom: 15px;
 }
 
 .library-game-title {
   font-size: 20px;
   /* font-weight: bold; */
+}
+
+.library-game-purchase {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: rgb(150, 150, 150);
 }
 
 .library-links-container {
@@ -81,14 +114,12 @@
   /* justify-content: space-evenly; */
 }
 
-.library-game-button,
-.library-review-button {
-  /* border: 1px solid white; */
-  background-color: rgb(255, 255, 255, 0.4);
-  border-radius: 3px;
+.library-button {
+  text-transform: uppercase;
+  border: 1px solid rgb(255, 255, 255, 0.4);
+  width: 100%;
+  padding: 3px;
+  background-color: rgb(255, 255, 255, 0.1);
+  /* border-radius: 3px; */
   font-size: 12px;
-}
-
-.library-game-button {
-  margin-right: 3px;
 }
