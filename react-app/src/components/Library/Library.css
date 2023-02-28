@@ -1,0 +1,94 @@
+.entire-library-container {
+  display: flex;
+  flex-direction: row;
+  color: white;
+}
+.library-sidebar-parent {
+  margin-top: 97px;
+  height: 100vh;
+  width: 320px;
+  border-right: 1px solid red;
+  /* background-color: rgb(255, 255, 255, 0.2); */
+}
+
+.library-sidebar-container {
+  margin-top: 10px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.library-game-list-container {
+  padding: 5px;
+  background-color: rgb(255, 255, 255, 0.1);
+}
+
+.library-parent {
+  margin-left: 20px;
+  margin-top: 125px;
+  display: flex;
+  flex-direction: column;
+}
+
+.library-header {
+  font-size: 46px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.library-container {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  /* justify-content: center; */
+  color: white;
+  gap: 8px;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.library-game-container {
+  padding: 5px;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  width: 380px;
+  height: 235px;
+  /* margin: 5px; */
+}
+
+.library-banner {
+  /* width: 250px; */
+}
+
+.library-info-container {
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  /* height: 100%; */
+  justify-content: space-between;
+}
+
+.library-game-title {
+  font-size: 20px;
+  /* font-weight: bold; */
+}
+
+.library-links-container {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-evenly; */
+}
+
+.library-game-button,
+.library-review-button {
+  /* border: 1px solid white; */
+  background-color: rgb(255, 255, 255, 0.4);
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.library-game-button {
+  margin-right: 3px;
+}
