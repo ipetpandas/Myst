@@ -70,7 +70,9 @@ function Navigation({ isLoaded }) {
             <div className="welcome-back">Welcome back,&nbsp;</div>
             <div className="welcome-back-username">{user.username}</div>
             <div className="welcome-back-avatar">
-              <img src={user.display_pic}></img>
+              <NavLink exact to="/library">
+                <img src={user.display_pic}></img>
+              </NavLink>
             </div>
           </div>
           <button onClick={goLogout} className="nav-login">
