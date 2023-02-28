@@ -51,6 +51,13 @@ def seed_reviews():
       review="Solid 7/10. Just wish they would release a legend whose ability is to have a stable connection to the servers."
   )
 
+  ellie2 = Review(
+      author_id=7,
+      game_id=6,
+      recommended=True,
+      review="Sword go brrrrrrr"
+  )
+
   michael1 = Review(
       author_id=8,
       game_id=1,
@@ -65,11 +72,25 @@ def seed_reviews():
       review="If you like banging your head against your desk when you get fifth partied, feeling like you are LITERALLY the worst at first person shooters, and constantly wondering why on earth you keep putting yourself through the same cycle over again. 10/10."
   )
 
+  kenny2 = Review(
+      author_id=9,
+      game_id=3,
+      recommended=True,
+      review="Wow... that's really all I need to say. Game is a masterpiece from beginning to end. Only negative is that I have to wait for the next part to be released on PC, which could be years from now. I wasn't a Final Fantasy VII fan before, but I am now."
+  )
+
   aaron1 = Review(
       author_id=10,
       game_id=1,
       recommended=True,
       review="I play League of Legends, you can't trust my taste in games."
+  )
+
+  aaron2 = Review(
+      author_id=10,
+      game_id=2,
+      recommended=True,
+      review="Unlike CDPR, I finished the game."
   )
 
   db.session.add_all(
@@ -81,9 +102,12 @@ def seed_reviews():
       peter5,
       alex1,
       ellie1,
+      ellie2,
       michael1,
       kenny1,
-      aaron1
+      kenny2,
+      aaron1,
+      aaron2
     ]
   )
 

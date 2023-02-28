@@ -37,6 +37,11 @@ def seed_libraries():
     game_id=1
   )
 
+  ellie2 = Library(
+    user_id=7,
+    game_id=6
+  )
+
   michael1 = Library(
     user_id=8,
     game_id=1
@@ -47,9 +52,19 @@ def seed_libraries():
       game_id=1
   )
 
+  kenny2 = Library (
+      user_id=9,
+      game_id=3
+  )
+
   aaron1 = Library (
       user_id=10,
       game_id=1
+  )
+
+  aaron2 = Library (
+      user_id=10,
+      game_id=2
   )
 
   db.session.add_all(
@@ -61,9 +76,12 @@ def seed_libraries():
       peter5,
       alex1,
       ellie1,
+      ellie2,
       michael1,
       kenny1,
-      aaron1
+      kenny2,
+      aaron1,
+      aaron2,
     ]
   )
 
