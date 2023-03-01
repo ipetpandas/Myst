@@ -1,5 +1,6 @@
 const READ_ALL_GAMES = `games/READ_ALL_GAMES`;
 const READ_GAME = `games/READ_GAME`;
+const READ_GAME_BY_CATEGORY = `games/READ_GAME_BY_CATEGORY`;
 
 //-------------------------------------------------------
 
@@ -15,6 +16,12 @@ const actionReadAllGames = (games) => ({
 const actionReadGame = (game) => ({
   type: READ_GAME,
   game,
+});
+
+// GET GAME BY CATEGORY
+const actionReadGameByCategory = (games) => ({
+  type: READ_GAME_BY_CATEGORY,
+  games,
 });
 
 //-------------------------------------------------------
@@ -56,12 +63,29 @@ export const thunkReadGame = (gameId) => async (dispatch) => {
   }
 };
 
+export const thunkReadGameByCategory = (category_id) => async (dispatch) => {
+  let res = await fetch(`/api/games/category/${category_id}`);
+
+  if (res.ok) {
+    const data = await res.json();
+    dispatch(actionReadGameByCategory(data));
+    return data;
+  } else if (res.status < 500) {
+    const data = await res.json();
+    if (data.errors) {
+      return data.errors;
+    }
+  } else {
+    return ["An error occurred. Please try again."];
+  }
+};
+
 //-------------------------------------------------------
 
 // Reducer
 
 function defaultState() {
-  const initialState = { allGames: {}, singleGame: {} };
+  const initialState = { allGames: {}, singleGame: {}, categoryGames: {} };
   return initialState;
 }
 
@@ -77,6 +101,9 @@ const gameReducer = (state = defaultState(), action) => {
       newState = { ...state };
       newState.singleGame = action.game.game_by_id;
       return newState;
+    case READ_GAME_BY_CATEGORY:
+      newState = { ...state };
+      newState.categoryGames = action.games.games_by_category;
     default:
       return state;
   }

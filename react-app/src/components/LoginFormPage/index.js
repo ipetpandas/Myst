@@ -3,6 +3,7 @@ import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import "./LoginForm.css";
+import { thunkReadUserCart } from "../../store/carts";
 
 function LoginFormPage() {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ function LoginFormPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
+    dispatch(thunkReadUserCart());
     if (data) {
       setErrors(data);
     }

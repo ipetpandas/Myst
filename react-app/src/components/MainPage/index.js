@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { thunkReadAllGames } from "../../store/games";
+import GameSelection from "../Games/GameSelection";
 import FeaturedCarousel from "./Carousel";
 
 const MainPage = () => {
@@ -17,9 +18,14 @@ const MainPage = () => {
   }, [dispatch]);
 
   return (
-    <section className="carousel-container">
-      {isLoaded && <FeaturedCarousel />}
-    </section>
+    <>
+      <section className="carousel-container">
+        {isLoaded && <FeaturedCarousel />}
+      </section>
+      <section className="game-selection-container">
+        {isLoaded && <GameSelection games={allGames} />}
+      </section>
+    </>
   );
 };
 

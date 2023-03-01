@@ -140,6 +140,7 @@ const cartReducer = (state = initialState, action) => {
     case ADD_TO_CART:
       newState = { ...state };
       newState = action.cart;
+      return newState;
     case CLEAR_CART:
       newState = { ...state };
       newState = {};

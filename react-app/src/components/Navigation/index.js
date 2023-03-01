@@ -1,18 +1,40 @@
 import React from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, Redirect, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import OpenModalButton from "../OpenModalButton";
 import "./Navigation.css";
 import { logout } from "../../store/session";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { thunkReadUserCart } from "../../store/carts";
+import { thunkReadAllGames, thunkReadGame } from "../../store/games";
+import SearchBox from "./SearchBox";
 
 function Navigation({ isLoaded }) {
   // const sessionUser = useSelector((state) => state.session.user);
+  const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector((state) => state.session.user);
-  const [cartNumber, setCartNumber] = useState(0);
-  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+  const games = useSelector((state) => state.games.allGames);
+  const cartSize = Object.values(cart).length;
+
+  const [searchInput, setSearchInput] = useState("");
+  const [searchGames, setSearchGames] = useState(Object.values(games));
+
+  useEffect(() => {
+    dispatch(thunkReadUserCart());
+    dispatch(thunkReadAllGames()).then(setSearchGames(Object.values(games)));
+  }, [dispatch]);
+
+  useEffect(() => {
+    let gamesList = Object.values(games).filter((game) =>
+      game.title.toLowerCase().includes(searchInput.toLowerCase())
+    );
+    setSearchGames(Object.values(gamesList));
+    console.log("Search Games--------->", gamesList);
+    console.log(searchInput);
+  }, [searchInput]);
 
   const goLogout = (e) => {
     e.preventDefault();
@@ -20,6 +42,13 @@ function Navigation({ isLoaded }) {
     dispatch(logout());
     // history.push("/");
   };
+
+  function navigate(gameId) {
+    // dispatch(thunkReadGame(gameId));
+    history.push(`/games/${gameId}`);
+    window.location.reload();
+    // return <Redirect to={`/games/${gameId}`}></Redirect>;
+  }
 
   return (
     <div className="nav-container">
@@ -43,11 +72,24 @@ function Navigation({ isLoaded }) {
         </a>
       </div>
       {/* <div className="main-links"></div> */}
-      <div className="main-search-bar">
-        <input type="text" placeholder="Search..."></input>
-        <button className="magnify-submit">
-          <i className="fa-solid fa-magnifying-glass"></i>
-        </button>
+      <div className="main-search-bar-container">
+        <div className="main-search-bar">
+          <input
+            type="text"
+            placeholder="Search..."
+            onChange={(e) => setSearchInput(e.target.value)}
+            onBlur={(e) => setSearchInput("")}
+            onFocus={(e) => setSearchInput(e.target.value)}
+          ></input>
+          <button className="magnify-submit">
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+        {searchInput.length ? (
+          <SearchBox gamesList={searchGames} navigate={navigate} />
+        ) : (
+          <></>
+        )}
       </div>
       {!user ? (
         <div className="nav-buttons-container">
@@ -62,9 +104,15 @@ function Navigation({ isLoaded }) {
         <div className="nav-buttons-container">
           <div className="welcome-back-container">
             <NavLink exact to="/cart">
-              <div className="welcome-back-cart">
-                <i className="fa-solid fa-cart-shopping fa-lg"></i>
-                {/* <div className="circle">{cartNumber}</div> */}
+              <div
+                className={`welcome-back-cart`}
+                data-cart-size={`${cartSize > 0 ? cartSize : ""}`}
+              >
+                <i
+                  className={`fa-solid fa-cart-shopping fa-xl ${
+                    cartSize > 0 ? "cart-size-show" : ""
+                  }`}
+                ></i>
               </div>
             </NavLink>
             <div className="welcome-back">Welcome back,&nbsp;</div>

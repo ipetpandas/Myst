@@ -45,12 +45,11 @@ const FeaturedCarousel = () => {
         {featuredGames.length &&
           featuredGames.map((game, index) => {
             return (
-              <>
+              <div key={game.id}>
                 <div
                   className={`mySlides fade slide${index + 1} ${
                     index + 1 === slideIndex ? "active" : "hidden"
                   }`}
-                  key={game.id}
                 >
                   <img
                     className="lrg-featured-banner-url"
@@ -80,7 +79,7 @@ const FeaturedCarousel = () => {
                     </div>
                   </div>
                 </div>
-              </>
+              </div>
             );
           })}
         <div role="button" className="prev" onClick={minusSlides}>
@@ -116,6 +115,7 @@ const FeaturedCarousel = () => {
           {featuredGames.map((game, index) => {
             return (
               <span
+                key={game.id}
                 className={`dot ${slideIndex === index + 1 ? "dotactive" : ""}`}
                 onClick={() => {
                   setSlideIndex(index + 1);
