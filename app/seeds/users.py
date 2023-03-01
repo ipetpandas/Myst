@@ -14,7 +14,7 @@ def seed_users():
         username='ipetpandas',
         email='peter@aa.io',
         password='password',
-        display_pic="https://i.pinimg.com/originals/f9/8e/56/f98e56072c2b5126f3bdbe2670c94019.jpg"
+        display_pic="https://64.media.tumblr.com/523b041c9e245a41efd41ae5ca4659e6/9fe1088b122f3d78-0a/s540x810/a9b98adf164530f28e6b31e8e057d6ca719a2ca5.gifv"
     )
 
     Alex = User(

@@ -109,9 +109,9 @@ const GameReviews = ({ game_id }) => {
       <div className="review-parent">
         <div className="review-container-left-right">
           <div className="review-container">
-            <div className="review-header">Your Review</div>
             {isLoaded && currentUserReview && (
               <>
+                <div className="review-header">Your Review</div>
                 <div className="individual-review-container2">
                   <div className="author-container">
                     <div className="author-avatar">
