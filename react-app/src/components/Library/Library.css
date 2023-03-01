@@ -60,7 +60,7 @@
   height: 100%;
   display: flex;
   flex-direction: row;
-  gap: 8px;
+  gap: 10px;
   align-content: flex-start;
   flex-wrap: wrap;
   width: 100%;
@@ -68,16 +68,33 @@
 
 .library-game-container {
   padding: 5px;
-  border: 1px solid rgb(255, 255, 255);
+  border: 1px solid rgb(68, 89, 121, 0.5);
   display: flex;
   flex-direction: column;
   width: 380px;
+  transition: all 0.3s ease-in-out;
+  z-index: 999;
+  background: linear-gradient(
+    145deg,
+    transparent 20%,
+    rgba(36, 40, 49, 0.5) 100%
+  );
   /* height: 265px; */
   /* margin: 5px; */
 }
 
+.library-game-container:hover {
+  background-color: rgb(36, 40, 49, 0.5);
+  /* background: linear-gradient(
+    145deg,
+    transparent 20%,
+    rgba(36, 40, 49, 1) 100%
+  ); */
+  transform: scale(1.03);
+  border: 1px solid rgb(120, 146, 185, 0.8);
+}
+
 .library-banner {
-  /* width: 250px; */
 }
 
 .library-info-container {
@@ -115,6 +132,7 @@
 }
 
 .library-button {
+  cursor: pointer;
   text-transform: uppercase;
   border: 1px solid rgb(255, 255, 255, 0.4);
   width: 100%;
@@ -122,4 +140,10 @@
   background-color: rgb(255, 255, 255, 0.1);
   /* border-radius: 3px; */
   font-size: 12px;
+  transition: 0.2s;
+}
+
+.library-button:hover {
+  border: 1px solid rgb(255, 255, 255, 1);
+  background-color: rgb(255, 255, 255, 0.2);
 }

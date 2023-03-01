@@ -47,23 +47,29 @@ const Library = () => {
               {isLoaded &&
                 Object.values(library).map((game) => {
                   return (
-                    <div className="library-game-container">
-                      <img
-                        className="library-banner"
-                        src={game.main_banner_url}
-                      ></img>
-                      <div className="library-info-container">
-                        <div className="library-game-title-container">
-                          <div className="library-game-title">{game.title}</div>
-                          <div className="library-game-purchase">
-                            Purchased: {dateConverter(game.created_at)}
+                    <NavLink exact to={`/games/${game.id}`}>
+                      <div className="library-game-container">
+                        <img
+                          className="library-banner"
+                          src={game.main_banner_url}
+                        ></img>
+                        <div className="library-info-container">
+                          <div className="library-game-title-container">
+                            <div className="library-game-title">
+                              {game.title}
+                            </div>
+                            <div className="library-game-purchase">
+                              Purchased: {dateConverter(game.created_at)}
+                            </div>
+                          </div>
+                          <div className="library-links-container">
+                            <button className="library-button">
+                              More Info
+                            </button>
                           </div>
                         </div>
-                        <div className="library-links-container">
-                          <button className="library-button">More Info</button>
-                        </div>
                       </div>
-                    </div>
+                    </NavLink>
                   );
                 })}
             </div>

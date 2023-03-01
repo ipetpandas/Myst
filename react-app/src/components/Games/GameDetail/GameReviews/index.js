@@ -24,6 +24,27 @@ const GameReviews = ({ game_id }) => {
   console.log("REVIEWS --------------------->", Object.values(reviews));
   let [isLoaded, setIsLoaded] = useState(false);
 
+  function getUserReviews(reviews, user) {
+    const currentUserReview = reviews[user?.id];
+    let otherReviews;
+    if (currentUserReview) {
+      otherReviews = Object.values(reviews).filter(
+        (review) => review.author_id !== user?.id
+      );
+    } else {
+      otherReviews = Object.values(reviews);
+    }
+    return [currentUserReview, otherReviews];
+  }
+
+  const [currentUserReview, otherReviews] = getUserReviews(reviews, user);
+  // console.log(
+  //   "CURRENT USER REVIEW----------------->:",
+  //   Object.values(currentUserReview)
+  // );
+
+  // console.log("OTHER REVIEWS----------->", otherReviews);
+
   // const [recommended, setRecommended] = useState(reviews[user.id]?.recommended);
   // const [review, setReview] = useState(reviews[user.id]?.review);
 
@@ -88,9 +109,77 @@ const GameReviews = ({ game_id }) => {
       <div className="review-parent">
         <div className="review-container-left-right">
           <div className="review-container">
+            <div className="review-header">Your Review</div>
+            {isLoaded && currentUserReview && (
+              <>
+                <div className="individual-review-container2">
+                  <div className="author-container">
+                    <div className="author-avatar">
+                      <img
+                        draggable="false"
+                        src={currentUserReview.author_display_pic}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <div className="review-text-container">
+                    <div className="review-text-top-container">
+                      <div className="review-top-info-container">
+                        <div className="review-author">
+                          {currentUserReview.author_name}
+                        </div>
+                        <div className="review-posted">
+                          Posted: {dateConverter(currentUserReview.created_at)}
+                        </div>
+                      </div>
+                      <div className="recommended-container">
+                        {recommendedFunction(currentUserReview.recommended)}
+                        <div className="key-icon">
+                          <i className="fa-solid fa-cloud-bolt"></i>
+                        </div>
+                      </div>
+                    </div>
+                    {showEditForm && user.id === currentUserReview.author_id ? (
+                      editForm()
+                    ) : (
+                      <div className="review-text">
+                        {currentUserReview.review}
+                      </div>
+                    )}
+                    {currentUserReview.author_id == user?.id &&
+                      !showEditForm && (
+                        <>
+                          <div className="review-user-actions">
+                            <button
+                              className="edit-review"
+                              onClick={__showEditForm}
+                            >
+                              Edit&nbsp;
+                              <i className="fa-solid fa-pen-to-square"></i>
+                            </button>
+                            <button
+                              className="delete-review"
+                              onClick={handleDelete}
+                            >
+                              Delete&nbsp;
+                              <i className="fa-solid fa-trash"></i>
+                            </button>
+                          </div>
+                          {/* <form action="" className="edit-review">
+                          <input></input>
+                        </form> */}
+                        </>
+                      )}
+                    {/* {review.author_id == user?.id && showEditForm && (
+
+                        )} */}
+                  </div>
+                </div>
+              </>
+            )}
             <div className="review-header">Customer Reviews</div>
             {isLoaded &&
-              Object.values(reviews).map((review) => {
+              Object.values(otherReviews).map((review) => {
                 return (
                   <>
                     <div className="individual-review-container">
