@@ -82,6 +82,36 @@ def seed_game_categories():
     category_id=7
   )
 
+  ts43 = GameCategory(
+    game_id=9,
+    category_id=6
+  )
+
+  hk1 = GameCategory(
+    game_id=10,
+    category_id=8
+  )
+
+  tk71 = GameCategory(
+    game_id=11,
+    category_id=9
+  )
+
+  tk72 = GameCategory(
+    game_id=11,
+    category_id=3
+  )
+
+  op21 = GameCategory(
+      game_id=12,
+      category_id=4
+  )
+
+  naraka1 = GameCategory(
+      game_id=13,
+      category_id=2
+  )
+
   db.session.add_all(
     [
       apex1,
@@ -99,7 +129,13 @@ def seed_game_categories():
       dbd2,
       stardew,
       ts41,
-      ts42
+      ts42,
+      ts43,
+      hk1,
+      tk71,
+      tk72,
+      op21,
+      naraka1
     ]
   )
 

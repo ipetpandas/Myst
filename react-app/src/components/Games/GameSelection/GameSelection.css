@@ -1,3 +1,125 @@
+.game-selection-parent {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.game-selection-container {
+  display: flex;
+  flex-direction: column;
+  width: 1350px;
+  max-width: 1350px;
+  border: 1px solid red;
+  /* align-items: center; */
+}
+
+.category-tab-container {
+  border: 1px solid red;
+  width: 100%;
+}
+
+.category-tab-btn {
+  cursor: pointer;
+  margin: 7px;
+  padding: 10px 30px 10px 30px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
 .active-category-tab {
   border: 1px solid red;
+}
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  /* gap: 10px; */
+}
+
+.splash-game-container {
+  margin: 8px 8px 0px 8px;
+  border: 1px solid red;
+  padding: 4px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.splash-game-banner {
+  margin-right: 15px;
+}
+
+.splash-game-banner img {
+  /* min-width: 460px;
+  min-height: 215px; */
+}
+
+.splash-game-info-parent {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-evenly; */
+  border: 1px solid yellow;
+  width: 100%;
+}
+
+.splash-game-info-container {
+  /* border: 1px solid green; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  min-width: 320px;
+}
+
+.splash-game-title {
+  line-height: 1;
+  padding: 0px 10px;
+  font-size: 28px;
+}
+
+.splash-game-categories-container {
+  width: 100%;
+  padding: 0px 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.splash-game-category {
+  font-size: 12px;
+  padding: 3px 5px 3px 8px;
+  background-color: rgb(102, 192, 244, 0.8);
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+.splash-reviews-container {
+  padding: 0px 10px;
+  margin-top: 5px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.splash-price {
+  font-size: 20px;
+  padding: 0px 10px;
+}
+
+.splash-screenshots-parent {
+  /* border: 1px solid blue; */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.splash-screenshot {
+  width: 200px;
+}
+
+.splash-pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }

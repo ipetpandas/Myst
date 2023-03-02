@@ -30,6 +30,14 @@ def seed_categories():
     name="Simulation"
   )
 
+  category8 = Category(
+    name="Platformer"
+  )
+
+  category9 = Category(
+      name="Fighting"
+  )
+
   db.session.add_all(
     [
       category1,
@@ -39,6 +47,8 @@ def seed_categories():
       category5,
       category6,
       category7,
+      category8,
+      category9
     ]
   )
 

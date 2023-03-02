@@ -227,6 +227,106 @@ def seed_game_screenshots():
     screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1222670/ss_7d9baea1aedeeb41cb197a9e45a30f0b91b4baf9.1920x1080.jpg"
   )
 
+  hkscrn1 = GameScreenshot(
+    game_id=10,
+    screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/367520/ss_d5b6edd94e77ba6db31c44d8a3c09d807ab27751.1920x1080.jpg"
+  )
+
+  hkscrn2 = GameScreenshot(
+    game_id=10,
+    screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/367520/ss_a81e4231cc8d55f58b51a4a938898af46503cae5.1920x1080.jpg"
+  )
+
+  hkscrn3 = GameScreenshot(
+    game_id=10,
+    screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/367520/ss_62e10cf506d461e11e050457b08aa0e2a1c078d0.1920x1080.jpg"
+  )
+
+  hkscrn4 = GameScreenshot(
+    game_id=10,
+    screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/367520/ss_33a645903d6dd9beec39f272a3daf57174a6cc26.1920x1080.jpg"
+  )
+
+  hkscrn5 = GameScreenshot(
+    game_id=10,
+    screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/367520/ss_92c7e8f34c00bdb455070ecdd5b746f0d2f6d808.1920x1080.jpg"
+  )
+
+  tk7scrn1 = GameScreenshot(
+      game_id=11,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/389730/ss_d92a558644ad60ae5814fc4d2bbaebc5abf62fa3.1920x1080.jpg"
+  )
+
+  tk7scrn2 = GameScreenshot(
+      game_id=11,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/389730/ss_40faa5ba39563cb899f1ab2ddd2afbf8b451d52f.1920x1080.jpg"
+  )
+
+  tk7scrn3 = GameScreenshot(
+      game_id=11,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/389730/ss_8f6d9f87f50513ed756004cfa5b2b54cdeb1df18.1920x1080.jpg"
+  )
+
+  tk7scrn4 = GameScreenshot(
+      game_id=11,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/389730/ss_c7a9506d38bf22e205217cede4da7a909de2d493.1920x1080.jpg"
+  )
+
+  tk7scrn5 = GameScreenshot(
+      game_id=11,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/389730/ss_0030a7c969ad251a3cf6a194309911c99cc994b5.1920x1080.jpg"
+  )
+
+  op2scrn1 = GameScreenshot(
+      game_id=12,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/1971650/ss_063d6228ccd9256814aec0cd46ebb4c093b56fea.1920x1080.jpg"
+  )
+
+  op2scrn2 = GameScreenshot(
+      game_id=12,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/1971650/ss_dd347306294990fbb93e88a9fb6d694a7a2eec13.1920x1080.jpg"
+  )
+
+  op2scrn3 = GameScreenshot(
+      game_id=12,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/1971650/ss_ffcc9f56fdf7d36ad4c0414dd2d85ed7389b42fe.1920x1080.jpg"
+  )
+
+  op2scrn4 = GameScreenshot(
+      game_id=12,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/1971650/ss_cd859f6ff08f678304dac0d8c36299b0a2f82a32.1920x1080.jpg"
+  )
+
+  op2scrn5 = GameScreenshot(
+      game_id=12,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/1971650/ss_d94d1bdba59a0a021225949f13fa8036b85808a7.1920x1080.jpg"
+  )
+
+  narakascrn1 = GameScreenshot(
+      game_id=13,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/1203220/ss_2141d35d3d0a3c7945db667ed92c0fa4a2d7630c.1920x1080.jpg"
+  )
+
+  narakascrn2 = GameScreenshot(
+      game_id=13,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/1203220/ss_cd8204925b7fc20989c04cd4bbfd41a7ab572025.1920x1080.jpg"
+  )
+
+  narakascrn3 = GameScreenshot(
+      game_id=13,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/1203220/ss_cabc466693c1159a413ad103f50ca6d9c3be473b.1920x1080.jpg"
+  )
+
+  narakascrn4 = GameScreenshot(
+      game_id=13,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/1203220/ss_9b52b6f209db7928077f9f18d12460c71908f9c3.1920x1080.jpg"
+  )
+
+  narakascrn5 = GameScreenshot(
+      game_id=13,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/1203220/ss_b24c65cce9d40a53e20502e392fba0f2e362d1b0.1920x1080.jpg"
+  )
+
   db.session.add_all(
     [
       apexscrn1,
@@ -273,7 +373,27 @@ def seed_game_screenshots():
       ts4scrn2,
       ts4scrn3,
       ts4scrn4,
-      ts4scrn5
+      ts4scrn5,
+      hkscrn1,
+      hkscrn2,
+      hkscrn3,
+      hkscrn4,
+      hkscrn5,
+      tk7scrn1,
+      tk7scrn2,
+      tk7scrn3,
+      tk7scrn4,
+      tk7scrn5,
+      op2scrn1,
+      op2scrn2,
+      op2scrn3,
+      op2scrn4,
+      op2scrn5,
+      narakascrn1,
+      narakascrn2,
+      narakascrn3,
+      narakascrn4,
+      narakascrn5,
     ]
   )
 

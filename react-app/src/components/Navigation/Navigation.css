@@ -87,9 +87,18 @@ button {
 
 .search-box-container {
   position: absolute;
-  background-color: grey;
+  background-color: rgb(255, 255, 255, 0.2);
   width: 395px;
   top: 75px;
+}
+
+.game-search-link {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.game-search-link:hover {
+  background-color: rgb(255, 255, 255, 0.5);
 }
 
 ::placeholder,

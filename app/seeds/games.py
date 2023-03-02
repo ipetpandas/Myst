@@ -120,6 +120,54 @@ def seed_games():
     main_banner_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1222670/header.jpg"
   )
 
+  hk = Game(
+    title="Hollow Knight",
+    release_date=datetime.date(2017, 2, 24),
+    developer="Team Cherry",
+    publisher="Team Cherry",
+    price=14.99,
+    description="Forge your own path in Hollow Knight! An epic action adventure through a vast ruined kingdom of insects and heroes. Explore twisting caverns, battle tainted creatures and befriend bizarre bugs, all in a classic, hand-drawn 2D style.",
+    large_featured_banner_url="",
+    featured_banner_url="",
+    main_banner_url="https://cdn.akamai.steamstatic.com/steam/apps/367520/header.jpg"
+  )
+
+  tk7 = Game(
+    title="Tekken 7",
+    release_date=datetime.date(2017, 6, 1),
+    developer="BANDAI NAMCO Studios Inc.",
+    publisher="BANDAI NAMCO Entertainment",
+    price=39.99,
+    description="Discover the epic conclusion of the long-time clan warfare between members of the Mishima family. Powered by Unreal Engine 4, the legendary fighting game franchise fights back with stunning story-driven cinematic battles and intense duels that can...",
+    large_featured_banner_url="",
+    featured_banner_url="",
+    main_banner_url="https://cdn.akamai.steamstatic.com/steam/apps/389730/header.jpg"
+  )
+
+  op2 = Game(
+    title="OCTOPATH TRAVELER II",
+    release_date=datetime.date(2023, 2, 24),
+    developer="Square Enix, ACQUIRE Corp.",
+    publisher="Square Enix",
+    price=59.99,
+    description="This game is a brand-new entry in the OCTOPATH TRAVELER series, the first installment of which was initially released in 2018 and sold over 3 million copies worldwide.",
+    large_featured_banner_url="",
+    featured_banner_url="",
+    main_banner_url="https://cdn.akamai.steamstatic.com/steam/apps/1971650/header.jpg"
+  )
+
+  naraka = Game(
+    title="NARAKA: BLADEPOINT",
+    release_date=datetime.date(2021, 8, 11),
+    developer="24 Entertainment",
+    publisher="NetEase Games Global",
+    price=19.99,
+    description="NARAKA: BLADEPOINT is a PVP combat game with up to 60 players, featuring martial arts inspired melee combat, incredible mobility, vast weapons, and customizable heroes with epic abilities inspired by Far East legends.",
+    large_featured_banner_url="",
+    featured_banner_url="",
+    main_banner_url="https://cdn.akamai.steamstatic.com/steam/apps/1203220/header.jpg"
+  )
+
   db.session.add_all(
     [
       apex,
@@ -130,7 +178,11 @@ def seed_games():
       ishin,
       dbd,
       stardew,
-      ts4
+      ts4,
+      hk,
+      tk7,
+      op2,
+      naraka
     ]
   )
 
