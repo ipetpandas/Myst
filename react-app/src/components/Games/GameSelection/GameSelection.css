@@ -22,14 +22,15 @@
 
 .category-tab-btn {
   cursor: pointer;
-  margin: 7px;
+  margin: 5px;
   padding: 10px 30px 10px 30px;
   border: 1px solid white;
   border-radius: 5px;
 }
 
 .active-category-tab {
-  border: 1px solid red;
+  /* border: 1px solid red; */
+  background-color: rgb(255, 255, 255, 0.4);
 }
 
 .tab-content {
@@ -48,7 +49,7 @@
 }
 
 .splash-game-banner {
-  margin-right: 15px;
+  margin-right: 10px;
 }
 
 .splash-game-banner img {

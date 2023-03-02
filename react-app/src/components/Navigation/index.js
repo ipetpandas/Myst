@@ -81,9 +81,9 @@ function Navigation({ isLoaded }) {
             onBlur={(e) => setSearchInput("")}
             onFocus={(e) => setSearchInput(e.target.value)}
           ></input>
-          <button className="magnify-submit">
+          {/* <button className="magnify-submit">
             <i className="fa-solid fa-magnifying-glass"></i>
-          </button>
+          </button> */}
         </div>
         {searchInput.length ? (
           <SearchBox gamesList={searchGames} navigate={navigate} />

@@ -216,10 +216,10 @@ const Game = () => {
                     </div>
                     {user && isLibraryLoaded && !library[game_id] ? (
                       <div className="wishlist-container">
-                        <button className="wishlist-btn">
+                        {/* <button className="wishlist-btn">
                           <i className="fa-regular fa-heart"></i>
                           &nbsp;Add To Wishlist
-                        </button>
+                        </button> */}
                       </div>
                     ) : (
                       <div></div>
@@ -251,12 +251,24 @@ function calculateReviewScore(reviews) {
   if (numReviews === 0) {
     return "No reviews";
   }
+
   const numPositive = reviews.filter(
     (review) => review.recommended === true
   ).length;
   const numNegative = reviews.filter(
     (review) => review.recommended === false
   ).length;
+
+  // let numPositive = 0;
+  // let numNegative = 0;
+  // for (review in reviews) {
+  //   if (review.recommended) {
+  //     numPositive++;
+  //   } else {
+  //     numNegative++;
+  //   }
+  // }
+
   const numMixed = numReviews - numPositive - numNegative;
 
   const positivePercentage = (numPositive / numReviews) * 100;
