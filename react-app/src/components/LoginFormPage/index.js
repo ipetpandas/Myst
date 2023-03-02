@@ -49,11 +49,6 @@ function LoginFormPage() {
         <div className="login-form-container">
           <div className="input-main-header">Welcome back to Myst</div>
           <form className="form-container" onSubmit={handleSubmit}>
-            <ul>
-              {errors.map((error, idx) => (
-                <li key={idx}>{error}</li>
-              ))}
-            </ul>
             <div className="input-container">
               <label>
                 <div className="input-label">Email Address</div>
@@ -75,6 +70,13 @@ function LoginFormPage() {
                   required
                 />
               </label>
+            </div>
+            <div className="login-errors-container">
+              <ul>
+                {errors.map((error, idx) => (
+                  <li key={idx}>{error}</li>
+                ))}
+              </ul>
             </div>
             <div className="login-button-container">
               <button type="submit">Log In</button>

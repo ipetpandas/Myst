@@ -22,7 +22,7 @@ const MainPage = () => {
       <section className="carousel-container">
         {isLoaded && <FeaturedCarousel />}
       </section>
-      <section className="game-selection-parent">
+      <section className="game-selection-parent" id="all-games">
         {isLoaded && <GameSelection games={allGames} />}
       </section>
     </>

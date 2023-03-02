@@ -327,6 +327,31 @@ def seed_game_screenshots():
       screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/1203220/ss_b24c65cce9d40a53e20502e392fba0f2e362d1b0.1920x1080.jpg"
   )
 
+  p54scrn1 = GameScreenshot(
+      game_id=14,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/1687950/ss_663171dc3afce8fe987e57e8659f91b69faa39bc.1920x1080.jpg"
+  )
+
+  p54scrn2 = GameScreenshot(
+      game_id=14,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/1687950/ss_ddcc016b8e5c434ccbd1a89c0157ce73acf905ae.1920x1080.jpg"
+  )
+
+  p54scrn3 = GameScreenshot(
+      game_id=14,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/1687950/ss_38d09e40dd56df43a1bb083dc94e27cb1360b526.1920x1080.jpg"
+  )
+
+  p54scrn4 = GameScreenshot(
+      game_id=14,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/1687950/ss_cfa96c0c9a983689b48cc679ddc63cfe373c2b9a.1920x1080.jpg"
+  )
+
+  p54scrn5 = GameScreenshot(
+      game_id=14,
+      screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/1687950/ss_a3258aba84ae2f2ff13a02a160f7495bfc152adb.1920x1080.jpg"
+  )
+
   db.session.add_all(
     [
       apexscrn1,
@@ -394,6 +419,11 @@ def seed_game_screenshots():
       narakascrn3,
       narakascrn4,
       narakascrn5,
+      p54scrn1,
+      p54scrn2,
+      p54scrn3,
+      p54scrn4,
+      p54scrn5,
     ]
   )
 

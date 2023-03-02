@@ -50,6 +50,23 @@
   font-weight: bold;
 }
 
+.login-errors-container {
+  margin-left: -40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style-type: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  color: red;
+  /* background-color: red; */
+}
+
+.login-errors-container > ul {
+  list-style-type: none;
+}
+
 .login-button-container {
   text-align: center;
   margin-top: 10px;

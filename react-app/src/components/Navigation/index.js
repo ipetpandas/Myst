@@ -61,10 +61,10 @@ function Navigation({ isLoaded }) {
             <span className="logo-text">Myst</span>
           </NavLink>
         </div>
-        <a className="individual-links" href="#">
+        {/* <a className="individual-links" href="#">
           Categories
-        </a>
-        <a className="individual-links" href="#">
+        </a> */}
+        <a className="individual-links" href="#all-games">
           All Games
         </a>
         <a className="individual-links" href="#">

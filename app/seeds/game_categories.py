@@ -112,6 +112,11 @@ def seed_game_categories():
       category_id=2
   )
 
+  p5r1 = GameCategory(
+      game_id=14,
+      category_id=4
+  )
+
   db.session.add_all(
     [
       apex1,
@@ -135,7 +140,8 @@ def seed_game_categories():
       tk71,
       tk72,
       op21,
-      naraka1
+      naraka1,
+      p5r1
     ]
   )
 

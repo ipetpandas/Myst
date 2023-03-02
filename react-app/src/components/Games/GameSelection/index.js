@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { thunkReadGameByCategory } from "../../../store/games";
 import "./GameSelection.css";
 import Pagination from "./Pagination";
+import { NavLink } from "react-router-dom";
 
 const GameSelection = (games) => {
   let dispatch = useDispatch();
@@ -128,59 +129,61 @@ const GameSelection = (games) => {
       {/* TAB CONTENT */}
       <div id="AllGames" className="tab-content">
         {currentGames.map((game) => (
-          <div className="splash-game-container" key={game.id}>
-            <div className="splash-game-banner">
-              <img src={game.main_banner_url}></img>
-            </div>
-            <div className="splash-game-info-parent">
-              <div className="splash-game-info-container">
-                <div className="splash-game-title">{game.title}</div>
-                <div className="splash-game-categories-container">
-                  {game.categories?.map((category) => {
-                    return (
-                      <div className="splash-game-category">
-                        {category.name}&nbsp;
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="splash-reviews-container">
-                  <span>Overall user reviews:&nbsp;</span>
-                  <span>({game.reviews.length} reviews)</span>
-                </div>
-                <div className="splash-price">{formatPrice(game.price)}</div>
+          <NavLink exact to={`/games/${game.id}`}>
+            <div className="splash-game-container" key={game.id}>
+              <div className="splash-game-banner">
+                <img src={game.main_banner_url}></img>
               </div>
-              <div className="splash-screenshots-parent">
-                {game.screenshots &&
-                  Array.from({ length: 3 })
-                    .reduce((acc, _, i) => {
-                      const availableIndices = game.screenshots
-                        .map((_, index) => index)
-                        .filter((index) => !acc.includes(index));
-                      const randomIndex =
-                        availableIndices[
-                          Math.floor(Math.random() * availableIndices.length)
-                        ];
-                      const screenshot = game.screenshots[randomIndex];
-                      return [...acc, randomIndex];
-                    }, [])
-                    .map((index) => {
-                      const screenshot = game.screenshots[index];
+              <div className="splash-game-info-parent">
+                <div className="splash-game-info-container">
+                  <div className="splash-game-title">{game.title}</div>
+                  <div className="splash-game-categories-container">
+                    {game.categories?.map((category) => {
                       return (
-                        <div
-                          className="splash-screenshots-container"
-                          key={index}
-                        >
-                          <img
-                            className="splash-screenshot"
-                            src={screenshot.screenshot_url}
-                          />
+                        <div className="splash-game-category">
+                          {category.name}&nbsp;
                         </div>
                       );
                     })}
+                  </div>
+                  <div className="splash-reviews-container">
+                    <span>Overall user reviews:&nbsp;</span>
+                    <span>({game.reviews.length} reviews)</span>
+                  </div>
+                  <div className="splash-price">{formatPrice(game.price)}</div>
+                </div>
+                <div className="splash-screenshots-parent">
+                  {game.screenshots &&
+                    Array.from({ length: 3 })
+                      .reduce((acc, _, i) => {
+                        const availableIndices = game.screenshots
+                          .map((_, index) => index)
+                          .filter((index) => !acc.includes(index));
+                        const randomIndex =
+                          availableIndices[
+                            Math.floor(Math.random() * availableIndices.length)
+                          ];
+                        const screenshot = game.screenshots[randomIndex];
+                        return [...acc, randomIndex];
+                      }, [])
+                      .map((index) => {
+                        const screenshot = game.screenshots[index];
+                        return (
+                          <div
+                            className="splash-screenshots-container"
+                            key={index}
+                          >
+                            <img
+                              className="splash-screenshot"
+                              src={screenshot.screenshot_url}
+                            />
+                          </div>
+                        );
+                      })}
+                </div>
               </div>
             </div>
-          </div>
+          </NavLink>
         ))}
       </div>
       {showPagination && (

@@ -168,6 +168,18 @@ def seed_games():
     main_banner_url="https://cdn.akamai.steamstatic.com/steam/apps/1203220/header.jpg"
   )
 
+  p5r = Game(
+    title="Persona 5 Royal",
+    release_date=datetime.date(2022, 10, 20),
+    developer="ATLUS",
+    publisher="SEGA",
+    price=59.99,
+    description="Don the mask and join the Phantom Thieves of Hearts as they stage grand heists, infiltrate the minds of the corrupt, and make them change their ways!",
+    large_featured_banner_url="",
+    featured_banner_url="",
+    main_banner_url="https://cdn.akamai.steamstatic.com/steam/apps/1687950/header.jpg"
+  )
+
   db.session.add_all(
     [
       apex,
@@ -182,7 +194,8 @@ def seed_games():
       hk,
       tk7,
       op2,
-      naraka
+      naraka,
+      p5r
     ]
   )
 
