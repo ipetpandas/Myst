@@ -135,11 +135,26 @@ const Game = () => {
                   <div className="game-detail-info-mid-container">
                     <div className="game-detail-mid-info">
                       <div className="game-detail-key">All Reviews:&nbsp;</div>
-                      <div className="game-detail-value">
+                      <div
+                        className={
+                          "game-detail-value " +
+                          (calculateReviewScore(singleGame.reviews) === "Mixed"
+                            ? "game-detail-mixed-score"
+                            : calculateReviewScore(singleGame.reviews) !==
+                                "No reviews" &&
+                              calculateReviewScore(singleGame.reviews).includes(
+                                "Negative"
+                              )
+                            ? "game-detail-negative-score"
+                            : "game-detail-positive-score")
+                        }
+                      >
                         <span className="game-detail-review-score">
                           {calculateReviewScore(singleGame.reviews)}&nbsp;
                         </span>
-                        ({singleGame.reviews.length})
+                        <span className="game-detail-review-length">
+                          ({singleGame.reviews.length})
+                        </span>
                       </div>
                     </div>
                   </div>

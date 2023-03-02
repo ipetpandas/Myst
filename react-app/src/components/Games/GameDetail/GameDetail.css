@@ -135,8 +135,20 @@ img.active-game-detail-2 {
   margin-left: 39px;
 }
 
-.game-detail-review-score {
+.game-detail-mixed-score {
+  color: orange;
+}
+
+.game-detail-negative-score {
+  color: red;
+}
+
+.game-detail-positive-score {
   color: rgb(102, 192, 244);
+}
+
+.game-detail-review-length {
+  color: rgb(150, 150, 150);
 }
 
 .game-detail-value2 {
