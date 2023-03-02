@@ -147,8 +147,9 @@ const GameSelection = (games) => {
                     })}
                   </div>
                   <div className="splash-reviews-container">
-                    <span>Overall user reviews:&nbsp;</span>
-                    <span>({game.reviews.length} reviews)</span>
+                    <span>Overall reviews:&nbsp;</span>
+                    <span>{calculateReviewScore(game.reviews)}&nbsp;</span>
+                    <span>({game.reviews.length})</span>
                   </div>
                   <div className="splash-price">{formatPrice(game.price)}</div>
                 </div>
@@ -205,6 +206,45 @@ function formatPrice(price) {
     return "FREE TO PLAY";
   } else {
     return `$${price}`;
+  }
+}
+
+function calculateReviewScore(reviews) {
+  const numReviews = reviews.length;
+  if (numReviews === 0) {
+    return "No reviews";
+  }
+  const numPositive = reviews.filter(
+    (review) => review.recommended === true
+  ).length;
+  const numNegative = reviews.filter(
+    (review) => review.recommended === false
+  ).length;
+  const numMixed = numReviews - numPositive - numNegative;
+
+  const positivePercentage = (numPositive / numReviews) * 100;
+  const negativePercentage = (numNegative / numReviews) * 100;
+
+  if (positivePercentage >= 95) {
+    return "Overwhelmingly Positive";
+  } else if (positivePercentage >= 80 && positivePercentage < 95) {
+    return "Very Positive";
+  } else if (positivePercentage >= 70 && positivePercentage < 80) {
+    return "Mostly Positive";
+  } else if (positivePercentage >= 40 && positivePercentage < 70) {
+    if (numMixed === 0) {
+      return "Mixed";
+    } else {
+      return "Positive";
+    }
+  } else if (positivePercentage >= 20 && positivePercentage < 40) {
+    return "Mostly Negative";
+  } else {
+    if (numNegative > numPositive) {
+      return "Overwhelmingly Negative";
+    } else {
+      return "Very Negative";
+    }
   }
 }
 

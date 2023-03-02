@@ -32,8 +32,8 @@ function Navigation({ isLoaded }) {
       game.title.toLowerCase().includes(searchInput.toLowerCase())
     );
     setSearchGames(Object.values(gamesList));
-    console.log("Search Games--------->", gamesList);
-    console.log(searchInput);
+    // console.log("Search Games--------->", gamesList);
+    // console.log(searchInput);
   }, [searchInput]);
 
   const goLogout = (e) => {

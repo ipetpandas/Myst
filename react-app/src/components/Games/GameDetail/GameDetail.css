@@ -135,6 +135,10 @@ img.active-game-detail-2 {
   margin-left: 39px;
 }
 
+.game-detail-review-score {
+  color: rgb(102, 192, 244);
+}
+
 .game-detail-value2 {
   margin-left: 33px;
   color: rgb(219, 219, 219);

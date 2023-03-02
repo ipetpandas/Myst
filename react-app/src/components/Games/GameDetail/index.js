@@ -136,7 +136,10 @@ const Game = () => {
                     <div className="game-detail-mid-info">
                       <div className="game-detail-key">All Reviews:&nbsp;</div>
                       <div className="game-detail-value">
-                        {singleGame.reviews.length}
+                        <span className="game-detail-review-score">
+                          {calculateReviewScore(singleGame.reviews)}&nbsp;
+                        </span>
+                        ({singleGame.reviews.length})
                       </div>
                     </div>
                   </div>
@@ -227,5 +230,44 @@ const dateConverter = (dateString) => {
     timeZone: "utc",
   });
 };
+
+function calculateReviewScore(reviews) {
+  const numReviews = reviews.length;
+  if (numReviews === 0) {
+    return "No reviews";
+  }
+  const numPositive = reviews.filter(
+    (review) => review.recommended === true
+  ).length;
+  const numNegative = reviews.filter(
+    (review) => review.recommended === false
+  ).length;
+  const numMixed = numReviews - numPositive - numNegative;
+
+  const positivePercentage = (numPositive / numReviews) * 100;
+  const negativePercentage = (numNegative / numReviews) * 100;
+
+  if (positivePercentage >= 95) {
+    return "Overwhelmingly Positive";
+  } else if (positivePercentage >= 80 && positivePercentage < 95) {
+    return "Very Positive";
+  } else if (positivePercentage >= 70 && positivePercentage < 80) {
+    return "Mostly Positive";
+  } else if (positivePercentage >= 40 && positivePercentage < 70) {
+    if (numMixed === 0) {
+      return "Mixed";
+    } else {
+      return "Positive";
+    }
+  } else if (positivePercentage >= 20 && positivePercentage < 40) {
+    return "Mostly Negative";
+  } else {
+    if (numNegative > numPositive) {
+      return "Overwhelmingly Negative";
+    } else {
+      return "Very Negative";
+    }
+  }
+}
 
 export default Game;
