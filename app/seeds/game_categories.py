@@ -37,6 +37,11 @@ def seed_game_categories():
     category_id=5
   )
 
+  re42 = GameCategory(
+      game_id=4,
+      category_id=1
+  )
+
   re2 = GameCategory(
     game_id=5,
     category_id=5
@@ -126,6 +131,7 @@ def seed_game_categories():
       ff7re1,
       ff7re2,
       re4,
+      re42,
       re2,
       ishin1,
       ishin2,

@@ -7,10 +7,33 @@ const FeaturedCarousel = () => {
   const games = useSelector((state) => state.games.allGames);
 
   const [slideIndex, setSlideIndex] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   // console.log("GAMES", games.games);
   let featuredGames = Object.values(games).filter(
     (game) => game.large_featured_banner_url
   );
+
+  // PAGINATION
+  const gamesPerPage = 6;
+  const startIndex = (currentPage - 1) * gamesPerPage;
+  const endIndex = startIndex + gamesPerPage;
+  let displayedGames = featuredGames.slice(startIndex, endIndex);
+
+  function prevPage() {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    } else {
+      setCurrentPage(Math.ceil(featuredGames.length / gamesPerPage));
+    }
+  }
+
+  function nextPage() {
+    if (currentPage < Math.ceil(featuredGames.length / gamesPerPage)) {
+      setCurrentPage(currentPage + 1);
+    } else {
+      setCurrentPage(1);
+    }
+  }
 
   function plusSlides() {
     if (slideIndex < featuredGames.length) {
@@ -86,15 +109,15 @@ const FeaturedCarousel = () => {
       </div>
       <div className="bottom-container">
         <div className="thumbnails">
-          {featuredGames.map((game, index) => {
+          {displayedGames.map((game, index) => {
             return (
               <div
                 className={`thumbnail ${
-                  index + 1 === slideIndex ? "active" : ""
+                  startIndex + index + 1 === slideIndex ? "active" : ""
                 }`}
                 key={game.id}
                 onClick={() => {
-                  setSlideIndex(index + 1);
+                  setSlideIndex(startIndex + index + 1);
                 }}
               >
                 <img
@@ -107,13 +130,14 @@ const FeaturedCarousel = () => {
           })}
         </div>
         <div className="dots">
-          {featuredGames.map((game, index) => {
+          {displayedGames.map((game, index) => {
+            const dotIndex = startIndex + index + 1;
             return (
               <span
                 key={game.id}
-                className={`dot ${slideIndex === index + 1 ? "dotactive" : ""}`}
+                className={`dot ${slideIndex === dotIndex ? "dotactive" : ""}`}
                 onClick={() => {
-                  setSlideIndex(index + 1);
+                  setSlideIndex(dotIndex);
                 }}
               ></span>
             );
@@ -124,4 +148,4 @@ const FeaturedCarousel = () => {
   );
 };
 
-export default FeaturedCarousel;
+// export default FeaturedCarousel;

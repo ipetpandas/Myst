@@ -50,8 +50,8 @@ def seed_games():
     publisher="CAPCOM Co., Ltd.",
     price=59.99,
     description="Survival is just the beginning. Six years have passed since the biological disaster in Raccoon City. Leon S. Kennedy, one of the survivors, tracks the president's kidnapped daughter to a secluded European village, where there is something terribly..",
-    large_featured_banner_url="",
-    featured_banner_url="",
+    large_featured_banner_url="https://www.nme.com/wp-content/uploads/2022/10/Resident-Evil-4-preview.jpg",
+    featured_banner_url="https://cdn.akamai.steamstatic.com/steamcommunity/public/images/clans/43107541/ff74e6750526470fb032a146ca2bc2a8e6c3efd6_400x225.png",
     main_banner_url="https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/header.jpg?t=1676336907"
   )
 
