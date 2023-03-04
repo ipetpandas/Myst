@@ -13,6 +13,8 @@ const Game = () => {
   let [isLibraryLoaded, setIsLibraryLoaded] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [activeScreenshotIndex, setActiveScreenshotIndex] = useState(0);
   const history = useHistory();
   const { game_id } = useParams();
   const singleGame = useSelector((state) => state.games.singleGame);
@@ -79,10 +81,38 @@ const Game = () => {
                               : "hidden"
                           }
                         >
-                          <img src={screenshot.screenshot_url}></img>
+                          <img
+                            src={screenshot.screenshot_url}
+                            onClick={() => {
+                              setShowModal(true);
+                              setActiveScreenshotIndex(index);
+                            }}
+                          ></img>
                         </div>
                       );
                     })}
+                  {showModal && (
+                    <div className="modal" onClick={() => setShowModal(false)}>
+                      <div className="modal-content">
+                        <div className="modal-image-wrapper">
+                          <img
+                            src={
+                              singleGame.screenshots[activeScreenshotIndex]
+                                .screenshot_url
+                            }
+                          ></img>
+                        </div>
+                        <div className="close-modal-container">
+                          <button
+                            className="close-modal"
+                            onClick={() => setShowModal(false)}
+                          >
+                            <i className="fa-solid fa-xmark"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <div className="game-detail-screenshots">
                   {isLoaded &&
