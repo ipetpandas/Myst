@@ -96,6 +96,7 @@ const Game = () => {
                       <div className="modal-content">
                         <div className="modal-image-wrapper">
                           <img
+                            className="modal-image-screenshot"
                             src={
                               singleGame.screenshots[activeScreenshotIndex]
                                 .screenshot_url

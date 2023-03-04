@@ -221,3 +221,8 @@ button {
   text-align: center;
   font: 32px Arial, sans-serif;
 }
+
+.spacer {
+  content: " ";
+  margin-right: 292.5px;
+}

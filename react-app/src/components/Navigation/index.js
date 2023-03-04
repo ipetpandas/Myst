@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, Redirect, useHistory } from "react-router-dom";
+import { NavLink, Redirect, useHistory, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import OpenModalButton from "../OpenModalButton";
@@ -18,6 +18,8 @@ function Navigation({ isLoaded }) {
   const cart = useSelector((state) => state.cart);
   const games = useSelector((state) => state.games.allGames);
   const cartSize = Object.values(cart).length;
+
+  const location = useLocation();
 
   const [searchInput, setSearchInput] = useState("");
   const [searchGames, setSearchGames] = useState(Object.values(games));
@@ -64,12 +66,18 @@ function Navigation({ isLoaded }) {
         {/* <a className="individual-links" href="#">
           Categories
         </a> */}
-        <a className="individual-links" href="#all-games">
-          All Games
-        </a>
-        <a className="individual-links" href="#">
-          Support
-        </a>
+        {location.pathname === "/" ? (
+          <a className="individual-links" href="#all-games">
+            All Games
+          </a>
+        ) : (
+          <div className="spacer"></div>
+        )}
+        {location.pathname === "/" && (
+          <a className="individual-links" href="#">
+            Support
+          </a>
+        )}
       </div>
       {/* <div className="main-links"></div> */}
       <div className="main-search-bar-container">
