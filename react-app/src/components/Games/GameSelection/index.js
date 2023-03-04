@@ -50,6 +50,7 @@ const GameSelection = (games) => {
 
   return (
     <div className="game-selection-container">
+      <div className="game-selection-header">Browse Games</div>
       {/* TAB LINKS */}
       <div className="category-tab-container">
         <button
@@ -125,7 +126,6 @@ const GameSelection = (games) => {
           Simulation
         </button>
       </div>
-
       {/* TAB CONTENT */}
       <div id="AllGames" className="tab-content">
         {currentGames.map((game) => (

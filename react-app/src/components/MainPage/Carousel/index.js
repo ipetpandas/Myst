@@ -7,10 +7,15 @@ const FeaturedCarousel = () => {
   const games = useSelector((state) => state.games.allGames);
 
   const [slideIndex, setSlideIndex] = useState(1);
+  const [autoSlide, setAutoSlide] = useState(true);
+  const SLIDE_INTERVAL = 5000; // 5 seconds
   // console.log("GAMES", games.games);
   let featuredGames = Object.values(games).filter(
     (game) => game.large_featured_banner_url
   );
+
+  // Only show the first 6 games
+  featuredGames = featuredGames.slice(0, 6);
 
   function plusSlides() {
     if (slideIndex < featuredGames.length) {
@@ -31,6 +36,28 @@ const FeaturedCarousel = () => {
     }
     console.log("PREV", slideIndex);
   }
+
+  function nextSlide() {
+    if (slideIndex < featuredGames.length) {
+      setSlideIndex(slideIndex + 1);
+    } else {
+      setSlideIndex(1);
+    }
+  }
+
+  useEffect(() => {
+    let slideInterval = null;
+
+    if (autoSlide) {
+      slideInterval = setInterval(() => {
+        nextSlide();
+      }, SLIDE_INTERVAL);
+    }
+
+    return () => {
+      clearInterval(slideInterval);
+    };
+  }, [slideIndex, autoSlide]);
 
   // console.log("FEATURED GAMES --------->", featuredGames);
 
@@ -85,7 +112,15 @@ const FeaturedCarousel = () => {
         </div>
       </div>
       <div className="bottom-container">
-        <div className="thumbnails">
+        <div
+          className="thumbnails"
+          onMouseEnter={() => {
+            setAutoSlide(false);
+          }}
+          onMouseLeave={() => {
+            setAutoSlide(true);
+          }}
+        >
           {featuredGames.map((game, index) => {
             return (
               <div
