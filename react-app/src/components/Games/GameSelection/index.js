@@ -87,6 +87,14 @@ const GameSelection = (games) => {
         </button>
         <button
           className={`category-tab-btn ${
+            activeTab === "Choices Matter" ? "active-category-tab" : ""
+          }`}
+          onClick={() => setActiveTab("Choices Matter")}
+        >
+          Choices Matter
+        </button>
+        <button
+          className={`category-tab-btn ${
             activeTab === "Fighting" ? "active-category-tab" : ""
           }`}
           onClick={() => setActiveTab("Fighting")}

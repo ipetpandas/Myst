@@ -402,6 +402,56 @@ def seed_game_screenshots():
       screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/620/ss_3858536cbc0a07dfbe36e8f87b3f08bf3be45e54.1920x1080.jpg"
   )
 
+  detroitscrn1 = GameScreenshot(
+      game_id=17,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1222140/ss_4ba58d269bce7db923575cc033c888cb83cc1cba.1920x1080.jpg"
+  )
+
+  detroitscrn2 = GameScreenshot(
+      game_id=17,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1222140/ss_fbc13a0d5b5b784c053042eb4ea09a30de069b3a.1920x1080.jpg"
+  )
+
+  detroitscrn3 = GameScreenshot(
+      game_id=17,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1222140/ss_9e6c271b6d11b1d0f35da336fb57b35fed0079d1.1920x1080.jpg"
+  )
+
+  detroitscrn4 = GameScreenshot(
+      game_id=17,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1222140/ss_cca3d17b5479784379aaec006dcb36a5406aed34.1920x1080.jpg"
+  )
+
+  detroitscrn5 = GameScreenshot(
+      game_id=17,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1222140/ss_9c900def2b1d9a003b7d3e202ea2a7556a36e081.1920x1080.jpg"
+  )
+
+  truecolorsscrn1 = GameScreenshot(
+      game_id=18,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/936790/ss_93afc98cccbc51c1364fedb56548896c69ef3704.1920x1080.jpg"
+  )
+
+  truecolorsscrn2 = GameScreenshot(
+      game_id=18,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/936790/ss_92b4caae062d5aebe04ab738db4b78d1c623e3c5.1920x1080.jpg"
+  )
+
+  truecolorsscrn3 = GameScreenshot(
+      game_id=18,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/936790/ss_9d3698ec2b942b399792e158a810c324bc265724.1920x1080.jpg"
+  )
+
+  truecolorsscrn4 = GameScreenshot(
+      game_id=18,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/936790/ss_7bc096f1671436306b650fbacc82ce476749df1f.1920x1080.jpg"
+  )
+
+  truecolorsscrn5 = GameScreenshot(
+      game_id=18,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/936790/ss_9f0dc678345ca808372ea4e0af1349ce4154cdef.1920x1080.jpg"
+  )
+
   db.session.add_all(
     [
       apexscrn1,
@@ -483,7 +533,17 @@ def seed_game_screenshots():
       portal2scrn2,
       portal2scrn3,
       portal2scrn4,
-      portal2scrn5
+      portal2scrn5,
+      detroitscrn1,
+      detroitscrn2,
+      detroitscrn3,
+      detroitscrn4,
+      detroitscrn5,
+      truecolorsscrn1,
+      truecolorsscrn2,
+      truecolorsscrn3,
+      truecolorsscrn4,
+      truecolorsscrn5,
     ]
   )
 

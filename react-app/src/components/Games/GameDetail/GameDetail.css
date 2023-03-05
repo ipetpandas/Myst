@@ -211,6 +211,12 @@ img.active-game-detail-2 {
   /* background-color: white; */
   text-align: center;
   width: 424px;
+  transition: 0.4s;
+}
+
+.login-to-purchase:hover {
+  background-color: white;
+  color: black;
 }
 
 .add-to-cart-btn {

@@ -82,6 +82,13 @@
   color: white;
   display: flex;
   flex-direction: row;
+  transition: all 0.3s ease-in-out;
+}
+
+.splash-game-container:hover {
+  background-color: rgb(36, 40, 49, 0.3);
+  transform: scale(1.01);
+  /* border: 1px solid rgb(120, 146, 185, 0.8); */
 }
 
 .splash-game-banner {
@@ -181,7 +188,7 @@
   user-select: none;
   background: linear-gradient(
     0deg,
-    rgba(236, 236, 236, 0.03) 0%,
+    rgba(236, 236, 236, 0.02) 0%,
     transparent 100%
   );
   border-top: 1px solid rgb(68, 89, 121, 0.5);
@@ -194,6 +201,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.4s;
 }
 
 .pagination-btn {

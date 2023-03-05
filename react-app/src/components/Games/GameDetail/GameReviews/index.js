@@ -328,12 +328,13 @@ const GameReviews = ({ game_id }) => {
               </form>
             </div>
           ) : isLoaded && user && !library[game_id] ? (
-            <div className="purchase-me-container arrow-top">
-              <div>Purchase this game to leave a review</div>
-            </div>
+            // <div className="purchase-me-container arrow-top">
+            //   <div>Purchase this game to leave a review</div>
+            // </div>
+            <div></div>
           ) : user && reviews[user.id] ? (
             <div className="purchase-me-container arrow-left">
-              <div>You've already left a review</div>
+              <div>Your review</div>
             </div>
           ) : (
             <div></div>

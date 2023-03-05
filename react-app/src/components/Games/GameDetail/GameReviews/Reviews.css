@@ -478,14 +478,18 @@
 }
 
 .purchase-me-container {
+  user-select: none;
+  opacity: 0.5;
+  font-size: 12px;
+  text-transform: uppercase;
   cursor: default;
   position: relative;
-  border: 1px solid white;
+  border: 1px solid rgb(255, 255, 255, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
   width: 465px;
-  height: 68px;
+  height: 38px;
 }
 
 .purchase-me-container.arrow-top,
@@ -497,20 +501,20 @@
   content: " ";
   position: absolute;
   /* right: 30px; */
-  top: -10px;
+  top: -11px;
   border-top: none;
   border-right: 10px solid transparent;
   border-left: 10px solid transparent;
-  border-bottom: 10px solid rgb(255, 255, 255);
+  border-bottom: 10px solid rgb(255, 255, 255, 0.5);
 }
 
 .purchase-me-container.arrow-left:after {
   content: " ";
   position: absolute;
-  left: -10px;
+  left: -11px;
   /* top: 15px; */
   border-top: 10px solid transparent;
-  border-right: 10px solid rgb(255, 255, 255);
+  border-right: 10px solid rgb(255, 255, 255, 0.5);
   border-left: none;
   border-bottom: 10px solid transparent;
 }

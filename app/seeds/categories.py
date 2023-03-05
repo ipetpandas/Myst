@@ -38,6 +38,10 @@ def seed_categories():
       name="Fighting"
   )
 
+  category10 = Category(
+      name="Choices Matter"
+  )
+
   db.session.add_all(
     [
       category1,
@@ -48,7 +52,8 @@ def seed_categories():
       category6,
       category7,
       category8,
-      category9
+      category9,
+      category10
     ]
   )
 

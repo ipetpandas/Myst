@@ -204,6 +204,30 @@ def seed_games():
     main_banner_url="https://cdn.cloudflare.steamstatic.com/steam/apps/620/header.jpg"
   )
 
+  detroit = Game(
+    title="Detroit: Become Human",
+    release_date=datetime.date(2020, 6, 18),
+    developer="Quantic Dream",
+    publisher="Quantic Dream",
+    price=39.99,
+    description='Detroit: Become Human puts the destiny of both mankind and androids in your hands, taking you to a near future where machines have become more intelligent than humans. Every choice you make affects the outcome of the game, with one of the most...',
+    large_featured_banner_url="",
+    featured_banner_url="",
+    main_banner_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1222140/header.jpg"
+  )
+
+  truecolors = Game(
+    title="Life is Strange: True Colors",
+    release_date=datetime.date(2021, 9, 9),
+    developer="Deck Nine",
+    publisher="Square Enix",
+    price=59.99,
+    description="Alex Chen hides her 'curse': the psychic power of Empathy, the ability to absorb the emotions of others. When her brother dies in a so-called accident, Alex must embrace her power to find the truth.",
+    large_featured_banner_url="",
+    featured_banner_url="",
+    main_banner_url="https://cdn.cloudflare.steamstatic.com/steam/apps/936790/header.jpg"
+  )
+
   db.session.add_all(
     [
       apex,
@@ -221,7 +245,9 @@ def seed_games():
       naraka,
       p5r,
       sf6,
-      portal2
+      portal2,
+      detroit,
+      truecolors
     ]
   )
 

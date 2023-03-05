@@ -32,6 +32,11 @@ def seed_libraries():
     game_id=14
   )
 
+  peter7 = Library(
+      user_id=2,
+      game_id=17
+  )
+
   alex1 = Library(
     user_id=3,
     game_id=1
@@ -115,6 +120,7 @@ def seed_libraries():
       peter4,
       peter5,
       peter6,
+      peter7,
       alex1,
       ellie1,
       ellie2,

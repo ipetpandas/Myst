@@ -44,6 +44,13 @@ def seed_reviews():
     review="Words cannot describe my love for this game. One of the best JRPGs I've played in a very long time."
   )
 
+  peter7 = Review(
+    author_id=2,
+    game_id=17,
+    recommended=True,
+    review="I think Connor is an Android sent by CyberLife uwu."
+  )
+
   alex1 = Review(
     author_id=3,
     game_id=1,
@@ -164,6 +171,7 @@ def seed_reviews():
       peter4,
       peter5,
       peter6,
+      peter7,
       alex1,
       ellie1,
       ellie2,
