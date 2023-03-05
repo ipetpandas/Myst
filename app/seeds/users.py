@@ -56,7 +56,7 @@ def seed_users():
         username='elfkid91',
         email='elfkid91@gmail.com',
         password='ihateapexlegends',
-        display_pic='https://tr.rbxcdn.com/e7711dbdf4b5d310d8cdca400d0d7c13/500/280/Image/Jpeg'
+        display_pic='https://media3.giphy.com/media/l2JhpWtDmwzGAS1J6/giphy.gif'
     )
 
     Kenny = User(
@@ -73,6 +73,20 @@ def seed_users():
         display_pic='https://i.pinimg.com/736x/5d/ed/2b/5ded2bcfcd73ea6c6f66975029e8960e.jpg'
     )
 
+    Acutely = User(
+        username='Acutely',
+        email='acutely@gmail.com',
+        password='cowsgomoo',
+        display_pic='https://media2.giphy.com/media/FT6DYlscgddh8cTR6d/giphy.gif'
+    )
+
+    Calcifer = User(
+        username='Calcifer',
+        email='calcifer@gmail.com',
+        password='kalel',
+        display_pic='https://media0.giphy.com/media/qKmWi9mfycx6E/giphy.gif'
+    )
+
     db.session.add_all(
         [
             demo,
@@ -84,7 +98,9 @@ def seed_users():
             Ellie,
             Michael,
             Kenny,
-            Aaron
+            Aaron,
+            Acutely,
+            Calcifer
         ]
     )
     db.session.commit()

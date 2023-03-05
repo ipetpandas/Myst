@@ -177,7 +177,11 @@ const GameReviews = ({ game_id }) => {
                 </div>
               </>
             )}
-            <div className="review-header">Customer Reviews</div>
+            {otherReviews.length ? (
+              <div className="review-header">Customer Reviews</div>
+            ) : (
+              <div className="blank"></div>
+            )}
             {isLoaded &&
               Object.values(otherReviews).map((review) => {
                 return (

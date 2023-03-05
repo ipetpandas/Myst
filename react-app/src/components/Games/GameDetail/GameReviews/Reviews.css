@@ -66,9 +66,31 @@
     transparent 20%,
     rgba(68, 89, 121, 0.2) 100%
   );
-  /* outline: 1px solid rgb(255, 255, 255, 0.5); */
-  box-shadow: 0px 0px 0px 1px rgba(45, 230, 255, 0.3);
+  /* border: 1px solid rgba(45, 230, 255, 0.3); */
+  /* box-shadow: 0px 0px 0px 1px rgba(45, 230, 255, 0.3); */
   padding: 10px;
+  border: 1px solid;
+  border-image-slice: 1;
+  border-image: linear-gradient(
+      var(--angle),
+      rgb(45, 230, 255, 0.8),
+      rgb(45, 125, 255, 0.5)
+    )
+    1;
+  animation: 5s rotate linear infinite;
+  --angle: 0deg;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
 }
 
 .author-container {

@@ -37,6 +37,13 @@ def seed_reviews():
     review="Been playing this game for too long but the state that it is currently in I definitely do not recommend to new players."
   )
 
+  peter6 = Review(
+    author_id=2,
+    game_id=14,
+    recommended=True,
+    review="Words cannot describe my love for this game. One of the best JRPGs I've played in a very long time."
+  )
+
   alex1 = Review(
     author_id=3,
     game_id=1,
@@ -58,11 +65,32 @@ def seed_reviews():
       review="Sword go brrrrrrr"
   )
 
+  ellie3 = Review(
+      author_id=7,
+      game_id=13,
+      recommended=False,
+      review="Always lagging and long loading when starting new game. Get killed off immediately."
+  )
+
   michael1 = Review(
       author_id=8,
       game_id=1,
       recommended=False,
       review="this isnt a free game every match costs a piece of ur sanity until ur left with nothing but regret."
+  )
+
+  michael2 = Review(
+      author_id=8,
+      game_id=7,
+      recommended=True,
+      review="I absolutely love getting tunneled in this games. Yes."
+  )
+
+  michael3 = Review(
+      author_id=8,
+      game_id=12,
+      recommended=True,
+      review="So far the characters and stories are better than the first Octopath, the game also leans into its strengths more than the first one did. I still wish the characters interacted more though."
   )
 
   kenny1 = Review(
@@ -93,6 +121,41 @@ def seed_reviews():
       review="Unlike CDPR, I finished the game."
   )
 
+  acutely1 = Review(
+      author_id=11,
+      game_id=10,
+      recommended=True,
+      review="One of the best platformers ever. I've played this game too many times now!"
+  )
+
+  acutely2 = Review(
+      author_id=11,
+      game_id=6,
+      recommended=True,
+      review="I had to play House as the mom with some kids in the midst of destabilizing feudal japan's complex political web. 10/10"
+  )
+
+  john1 = Review(
+      author_id=4,
+      game_id=13,
+      recommended=True,
+      review="Fun game, need more NA players."
+  )
+
+  calcifer1 = Review(
+      author_id=12,
+      game_id=8,
+      recommended=True,
+      review="This is the most relaxing and stressful game I have played."
+  )
+
+  calcifer2 = Review(
+      author_id=12,
+      game_id=16,
+      recommended=True,
+      review="A classic I love returning to every year or so, it might have been released over a decade ago now it is still amazing, truly a timeless masterpiece."
+  )
+
   db.session.add_all(
     [
       peter1,
@@ -100,14 +163,23 @@ def seed_reviews():
       peter3,
       peter4,
       peter5,
+      peter6,
       alex1,
       ellie1,
       ellie2,
+      ellie3,
       michael1,
+      michael2,
+      michael3,
       kenny1,
       kenny2,
       aaron1,
-      aaron2
+      aaron2,
+      acutely1,
+      acutely2,
+      john1,
+      calcifer1,
+      calcifer2
     ]
   )
 

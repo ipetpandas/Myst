@@ -352,6 +352,56 @@ def seed_game_screenshots():
       screenshot_url="https://cdn.akamai.steamstatic.com/steam/apps/1687950/ss_a3258aba84ae2f2ff13a02a160f7495bfc152adb.1920x1080.jpg"
   )
 
+  sf6scrn1 = GameScreenshot(
+      game_id=15,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1364780/ss_387137f8cccb048c35a8685634372e97785d40aa.1920x1080.jpg"
+  )
+
+  sf6scrn2 = GameScreenshot(
+      game_id=15,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1364780/ss_ed46aaa9ed94dd6f35a703070f8df16cee5aef61.1920x1080.jpg"
+  )
+
+  sf6scrn3 = GameScreenshot(
+      game_id=15,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1364780/ss_10191fb5ab48cee99d7a43e636db9202938f143e.1920x1080.jpg"
+  )
+
+  sf6scrn4 = GameScreenshot(
+      game_id=15,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1364780/ss_449d488d2edbe785c4e6010fede1c3b8dae8e388.1920x1080.jpg"
+  )
+
+  sf6scrn5 = GameScreenshot(
+      game_id=15,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1364780/ss_201488fc9f1aa5e29e2fc6d96ef2b66e41ddf32e.1920x1080.jpg"
+  )
+
+  portal2scrn1 = GameScreenshot(
+      game_id=16,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/620/ss_f3f6787d74739d3b2ec8a484b5c994b3d31ef325.1920x1080.jpg"
+  )
+
+  portal2scrn2 = GameScreenshot(
+      game_id=16,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/620/ss_3d13161104a04603a0524536770c5f74626db4c0.1920x1080.jpg"
+  )
+
+  portal2scrn3 = GameScreenshot(
+      game_id=16,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/620/ss_8a772608d29ffd56ac013d2ac7c4388b96e87a21.1920x1080.jpg"
+  )
+
+  portal2scrn4 = GameScreenshot(
+      game_id=16,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/620/ss_358127df30a766a1516ad139083c2bcec3fe0975.1920x1080.jpg"
+  )
+
+  portal2scrn5 = GameScreenshot(
+      game_id=16,
+      screenshot_url="https://cdn.cloudflare.steamstatic.com/steam/apps/620/ss_3858536cbc0a07dfbe36e8f87b3f08bf3be45e54.1920x1080.jpg"
+  )
+
   db.session.add_all(
     [
       apexscrn1,
@@ -424,6 +474,16 @@ def seed_game_screenshots():
       p54scrn3,
       p54scrn4,
       p54scrn5,
+      sf6scrn1,
+      sf6scrn2,
+      sf6scrn3,
+      sf6scrn4,
+      sf6scrn5,
+      portal2scrn1,
+      portal2scrn2,
+      portal2scrn3,
+      portal2scrn4,
+      portal2scrn5
     ]
   )
 

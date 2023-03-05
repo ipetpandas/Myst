@@ -27,6 +27,11 @@ def seed_libraries():
     game_id=7
   )
 
+  peter6 = Library(
+    user_id=2,
+    game_id=14
+  )
+
   alex1 = Library(
     user_id=3,
     game_id=1
@@ -42,9 +47,24 @@ def seed_libraries():
     game_id=6
   )
 
+  ellie3 = Library(
+      user_id=7,
+      game_id=13
+  )
+
   michael1 = Library(
     user_id=8,
     game_id=1
+  )
+
+  michael2 = Library(
+    user_id=8,
+    game_id=7
+  )
+
+  michael3 = Library(
+    user_id=8,
+    game_id=12
   )
 
   kenny1 = Library (
@@ -67,6 +87,26 @@ def seed_libraries():
       game_id=2
   )
 
+  acutely1 = Library(
+      user_id=11,
+      game_id=10
+  )
+
+  john1 = Library(
+      user_id=4,
+      game_id=13
+  )
+
+  calcifer1 = Library(
+      user_id=12,
+      game_id=8
+  )
+
+  calcifer2 = Library(
+      user_id=12,
+      game_id=16
+  )
+
   db.session.add_all(
     [
       peter1,
@@ -74,14 +114,22 @@ def seed_libraries():
       peter3,
       peter4,
       peter5,
+      peter6,
       alex1,
       ellie1,
       ellie2,
+      ellie3,
       michael1,
+      michael2,
+      michael3,
       kenny1,
       kenny2,
       aaron1,
       aaron2,
+      acutely1,
+      john1,
+      calcifer1,
+      calcifer2
     ]
   )
 

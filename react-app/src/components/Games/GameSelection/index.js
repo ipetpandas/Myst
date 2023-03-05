@@ -128,6 +128,15 @@ const GameSelection = (games) => {
       </div>
       {/* TAB CONTENT */}
       <div id="AllGames" className="tab-content">
+        {showPagination && (
+          <div className="splash-pagination">
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          </div>
+        )}
         {currentGames.map((game) => (
           <NavLink exact to={`/games/${game.id}`}>
             <div className="splash-game-container" key={game.id}>
@@ -148,8 +157,26 @@ const GameSelection = (games) => {
                   </div>
                   <div className="splash-reviews-container">
                     <span>Overall reviews:&nbsp;</span>
-                    <span>{calculateReviewScore(game.reviews)}&nbsp;</span>
-                    <span>({game.reviews.length})</span>
+                    <div
+                      className={
+                        calculateReviewScore(game.reviews) === "Mixed"
+                          ? "game-detail-mixed-score"
+                          : calculateReviewScore(game.reviews) !==
+                              "No reviews" &&
+                            calculateReviewScore(game.reviews).includes(
+                              "Negative"
+                            )
+                          ? "game-detail-negative-score"
+                          : "game-detail-positive-score"
+                      }
+                    >
+                      <span className="game-detail-review-score">
+                        {calculateReviewScore(game.reviews)}&nbsp;
+                      </span>
+                      <span className="game-detail-review-length">
+                        ({game.reviews.length})
+                      </span>
+                    </div>
                   </div>
                   <div className="splash-price">{formatPrice(game.price)}</div>
                 </div>

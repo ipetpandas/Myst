@@ -10,6 +10,7 @@ import GameSelection from "./components/Games/GameSelection";
 import Game from "./components/Games/GameDetail";
 import Cart from "./components/Cart";
 import Library from "./components/Library";
+import Footer from "./components/Footer";
 import { thunkReadUserCart } from "./store/carts";
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route exact path="/">
             <MainPage />
             {/* <GameSelection /> */}
+            {/* <Footer /> */}
           </Route>
           {/* <Route exact patch="/gameselection">
             <GameSelection />

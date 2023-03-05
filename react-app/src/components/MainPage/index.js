@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { thunkReadAllGames } from "../../store/games";
+import Footer from "../Footer";
 import GameSelection from "../Games/GameSelection";
 import FeaturedCarousel from "./Carousel";
+import "./MainPage.css";
 
 const MainPage = () => {
   let dispatch = useDispatch();
@@ -25,6 +27,7 @@ const MainPage = () => {
       <section className="game-selection-parent" id="all-games">
         {isLoaded && <GameSelection games={allGames} />}
       </section>
+      {isLoaded && <Footer />}
     </>
   );
 };

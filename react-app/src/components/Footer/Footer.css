@@ -1,0 +1,86 @@
+.footer-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.footer-container {
+  /* border-top: 1px solid rgb(68, 89, 121, 0.8); */
+  height: 80px;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
+  /* font-size: 12px; */
+  /* background-color: black; */
+}
+
+.footer-developer-info-container {
+  cursor: default;
+  color: white;
+  font-size: 12px;
+  height: 100%;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255, 0.1);
+}
+
+.footer-view-project-container {
+  color: white;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(109, 205, 154, 0.5);
+  width: 50%;
+  height: 100%;
+  transition: 0.4s;
+}
+
+.footer-view-project-container:hover {
+  background-color: rgb(109, 205, 154, 1);
+}
+
+.footer-developer-info-container {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  height: 100%;
+}
+
+.footer-github-container {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(61, 172, 221, 0.7);
+  width: 10%;
+  height: 100%;
+  font-size: 30px;
+  transition: 0.4s;
+}
+
+.footer-github-container:hover {
+  background-color: rgb(61, 172, 221, 1);
+}
+
+.footer-linkedin-container {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(30, 131, 174, 0.5);
+  width: 10%;
+  height: 100%;
+  font-size: 30px;
+  transition: 0.4s;
+}
+
+.footer-linkedin-container:hover {
+  background-color: rgb(30, 131, 174, 0.8);
+}

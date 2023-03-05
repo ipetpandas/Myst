@@ -122,6 +122,21 @@ def seed_game_categories():
       category_id=4
   )
 
+  sf61 = GameCategory(
+      game_id=15,
+      category_id=1
+  )
+
+  sf62 = GameCategory(
+      game_id=15,
+      category_id=9
+  )
+
+  portal21 = GameCategory(
+      game_id=16,
+      category_id=8
+  )
+
   db.session.add_all(
     [
       apex1,
@@ -147,7 +162,10 @@ def seed_game_categories():
       tk72,
       op21,
       naraka1,
-      p5r1
+      p5r1,
+      sf61,
+      sf62,
+      portal21
     ]
   )
 

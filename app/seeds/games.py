@@ -180,6 +180,30 @@ def seed_games():
     main_banner_url="https://cdn.akamai.steamstatic.com/steam/apps/1687950/header.jpg"
   )
 
+  sf6 = Game(
+    title="Street Fighter 6",
+    release_date=datetime.date(2023, 6, 1),
+    developer="CAPCOM Co., Ltd.",
+    publisher="CAPCOM Co., Ltd.",
+    price=59.99,
+    description="Capcom's latest challenger arrives! Street Fighter™ 6 launches worldwide on June 2nd, 2023, featuring 3 game modes: World Tour, Fighting Ground, and Battle Hub. The next evolution of the series! #StreetFighter6",
+    large_featured_banner_url="https://cdn.mos.cms.futurecdn.net/Ax62rUQ4WAotXNTF5Whpfg.jpg",
+    featured_banner_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1364780/extras/13_Custom-Images_ST.png?t=1677806694",
+    main_banner_url="https://cdn.cloudflare.steamstatic.com/steam/apps/1364780/header.jpg"
+  )
+
+  portal2 = Game(
+    title="Portal 2",
+    release_date=datetime.date(2011, 4, 18),
+    developer="Valve",
+    publisher="Valve",
+    price=9.99,
+    description='The "Perpetual Testing Initiative" has been expanded to allow you to design co-op puzzles for you and your friends!',
+    large_featured_banner_url="",
+    featured_banner_url="",
+    main_banner_url="https://cdn.cloudflare.steamstatic.com/steam/apps/620/header.jpg"
+  )
+
   db.session.add_all(
     [
       apex,
@@ -195,7 +219,9 @@ def seed_games():
       tk7,
       op2,
       naraka,
-      p5r
+      p5r,
+      sf6,
+      portal2
     ]
   )
 

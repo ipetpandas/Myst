@@ -52,6 +52,18 @@ function Navigation({ isLoaded }) {
     // return <Redirect to={`/games/${gameId}`}></Redirect>;
   }
 
+  function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+      scrollIntoViewOptions: {
+        speed: 500, // Change the speed value as needed
+      },
+    });
+  }
+
   return (
     <div className="nav-container">
       <div className="link-container">
@@ -67,14 +79,22 @@ function Navigation({ isLoaded }) {
           Categories
         </a> */}
         {location.pathname === "/" ? (
-          <a className="individual-links" href="#all-games">
+          // <a className="individual-links" href="#all-games">
+          <a
+            className="individual-links"
+            onClick={() => scrollToSection("all-games")}
+          >
             All Games
           </a>
         ) : (
           <div className="spacer"></div>
         )}
         {location.pathname === "/" && (
-          <a className="individual-links" href="#">
+          // <a className="individual-links" href="#support">
+          <a
+            className="individual-links"
+            onClick={() => scrollToSection("support")}
+          >
             Support
           </a>
         )}
