@@ -9,6 +9,14 @@ a:visited {
   color: white;
 }
 
+a:link {
+  color: white;
+}
+
+a:active {
+  color: white;
+}
+
 body {
   height: 100%;
   background-image: linear-gradient(transparent, rgb(23, 26, 33));
