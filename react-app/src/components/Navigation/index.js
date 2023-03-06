@@ -42,7 +42,7 @@ function Navigation({ isLoaded }) {
     e.preventDefault();
 
     dispatch(logout());
-    // history.push("/");
+    history.push("/");
   };
 
   function navigate(gameId) {
