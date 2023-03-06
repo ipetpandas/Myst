@@ -33,11 +33,11 @@ Myst is a full-stack web application cloned and inspired by Steam. The build cur
 
 ### Game Detail
 
-![img](https://i.imgur.com/nf1bRTx.gif)
+![img](./screenshots/gameDetail.gif)
 
 ### Cart
 
-<!-- ![img](https://i.imgur.com/hCViw3z.gif) -->
+![img](./screenshots/cart.gif)
 
 ### Library
 
