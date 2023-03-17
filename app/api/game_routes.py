@@ -43,7 +43,7 @@ def get_all_reviews_by_game_id(game_id):
   dict = {}
   for review in reviews:
     dict[review.author_id] = review.to_dict()
-  print("REVIEWS FROM BACKEND -------->", dict)
+  # print("REVIEWS FROM BACKEND -------->", dict)
   return {"reviews": dict}
 
 # CREATE
@@ -74,8 +74,8 @@ def update_review(game_id):
   form = ReviewForm()
   form["csrf_token"].data = request.cookies["csrf_token"]
   existing_review = Review.query.filter(Review.author_id == current_user.id, Review.game_id == game_id).first()
-  print("Review existing", existing_review.to_dict())
-  print("Review valid", form.validate_on_submit())
+  # print("Review existing", existing_review.to_dict())
+  # print("Review valid", form.validate_on_submit())
   if not existing_review:
       return {"errors": ["Could not complete request"]}
   if form.validate_on_submit():
