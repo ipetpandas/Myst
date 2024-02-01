@@ -24,6 +24,7 @@ body {
   background-color: #050914;
   background-attachment: fixed;
   overflow: overlay;
+  overflow-x: hidden;
 }
 
 .app-container {
